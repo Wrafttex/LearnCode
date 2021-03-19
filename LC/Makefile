@@ -5,10 +5,15 @@ objects = $(sources:.c=.o)
 flags = -g
 
 $(exec): $(objects)
-	gcc $(objects) $(flasgs) -o $(exec)
+	gcc $(objects) $(flags) -o $(exec)
 
 %.o: %.c include/%.h
 	gcc -c $(flags) $< -o $@
+
+# install:
+# 	make
+# 	cp LC.out c:\windows\system32
+
 
 clean:
 	-rm *.out
