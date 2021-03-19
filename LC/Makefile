@@ -18,6 +18,6 @@ $(exec): $(objects)
 clean:
 	-rm *.out
 	#remove object files
-	-rm *.o
+	# -rm *.o
 	#remove object files from source folder
 	-rm src/*.o
