@@ -1,24 +1,54 @@
 grammar g;
 
+program: (decl | expr | stmt)+ EOF;
 
-program: (decl | expr)+ EOF
+decl: DATA_TYPE ID '=' expr ';'
+    | DATA_TYPE ID ',' ID ';'   // Scuffed-multi declaration
+    | DATA_TYPE ID ';'          // Single-declaration
     ;
 
-decl: ID ':' DATA_TYPE '=' NUM;
+stmt: ID '=' expr
+    ;
 
-op: '*' | '+' | '-';
+stmts: stmt
+     ;
 
 expr: expr op expr
     | ID
     | NUM
-    | ML_COMMENT
-    | SL_COMMENT
+    | FLOAT
     ;
+
+op: '+'                     # Addition
+  | '-'                     # Subtraction
+  | '*'                     # Multiplication
+  | '/'                     # Division
+  | '^'                     # Exponent
+  | '%'                     # Modulo
+  // sqrt
+  | '>'                     # Less_than
+  | '<'                     # Greater_than
+  | '='                     # Equal
+  | '<='                    # Great_or_equal
+  | '>='                    # Less_or_equal
+  | '!='                    # Not_equal
+  | '!'                     # Logical_not
+  | '=='                    # Comparison
+  | 'OR'                    # Logical_or
+  | 'AND'                   # Logical_and
+  | ','                     # Separator
+  // Parenthesis () []
+  ;
 
 // Tokens
 ID  : [a-z][a-zA-Z0-9_]*;
-NUM : '0' | '-'?[1-9][0-9]*;
-DATA_TYPE : 'INT' | 'BOOL' | 'CHAR' | 'STRING' | 'DECIMAL';
+NUM : '0'
+    | '-'?[1-9][0-9]*;
+
+FLOAT : [0-9]*[.]?[0-9]+
+      ;
+
+DATA_TYPE : 'VAR';
 ML_COMMENT : '#-' .*? '-#';
 SL_COMMENT : '#' ~[\r|\n]*;
-WS : [\t\n]+ -> skip; // Haven't been tested.
+WS : [ \t\n]+ -> skip;

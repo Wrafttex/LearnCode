@@ -1,0 +1,5 @@
+VAR 5 = 5;
+VAR x = 2
+VARx= 1;
+VAR y=2.05;
+ VAR str = hello;
