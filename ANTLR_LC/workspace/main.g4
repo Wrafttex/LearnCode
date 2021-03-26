@@ -1,4 +1,4 @@
-grammar g;
+grammar main;
 
 program: (decl | expr | stmt)+ EOF;
 
@@ -7,9 +7,11 @@ decl: DATA_TYPE ID '=' expr ';'
     | DATA_TYPE ID ';'          // Single-declaration
     ;
 
+
 stmt: ID '=' expr
     ;
 
+// UNUSED
 stmts: stmt
      ;
 
