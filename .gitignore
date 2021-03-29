@@ -1,4 +1,9 @@
 # Ignore generated parser and lexer
-./gen/*
-./libs/*
-./nbproject/*
+build/
+dist/
+gen/
+libs/
+nbproject/
+.xml
+.iml
+.mf
