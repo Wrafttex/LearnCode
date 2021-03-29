@@ -1,4 +1,0 @@
-# Ignore generated parser and lexer
-../gen/
-../libs/
-../nbproject/
