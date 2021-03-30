@@ -1,0 +1,14 @@
+T__0=1
+T__1=2
+COMMA=3
+VAR=4
+TO=5
+INT=6
+STRING=7
+ID=8
+WS=9
+'='=1
+'show'=2
+','=3
+'var'=4
+'to'=5

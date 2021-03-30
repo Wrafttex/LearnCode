@@ -1,4 +1,4 @@
-// Generated from C:/Users/pc/Desktop/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
+// Generated from C:/Users/pc/Documents/GitHub/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
 package LCTlang;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -15,28 +15,28 @@ public class LCTParser extends Parser {
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
-		new PredictionContextCache();
+			new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, COMMA=3, VAR=4, TO=5, INT=6, STRING=7, ID=8, WS=9;
+			T__0=1, T__1=2, COMMA=3, VAR=4, TO=5, INT=6, STRING=7, ID=8, WS=9;
 	public static final int
-		RULE_program = 0, RULE_stmt = 1, RULE_assignStmt = 2, RULE_invocationStmt = 3, 
-		RULE_expr = 4, RULE_show = 5;
+			RULE_program = 0, RULE_stmt = 1, RULE_assignStmt = 2, RULE_invocationStmt = 3,
+			RULE_expr = 4, RULE_show = 5;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"program", "stmt", "assignStmt", "invocationStmt", "expr", "show"
+				"program", "stmt", "assignStmt", "invocationStmt", "expr", "show"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'='", "'show'", "','", "'var'", "'to'"
+				null, "'='", "'show'", "','", "'var'", "'to'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, "COMMA", "VAR", "TO", "INT", "STRING", "ID", "WS"
+				null, null, null, "COMMA", "VAR", "TO", "INT", "STRING", "ID", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -123,20 +123,20 @@ public class LCTParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(15);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << VAR) | (1L << ID))) != 0)) {
-				{
-				{
-				setState(12);
-				stmt();
-				}
-				}
-				setState(17);
+				setState(15);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			}
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << VAR) | (1L << ID))) != 0)) {
+					{
+						{
+							setState(12);
+							stmt();
+						}
+					}
+					setState(17);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
 			}
 		}
 		catch (RecognitionException re) {
@@ -186,29 +186,29 @@ public class LCTParser extends Parser {
 			setState(21);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case VAR:
-				enterOuterAlt(_localctx, 1);
+				case VAR:
+					enterOuterAlt(_localctx, 1);
 				{
-				setState(18);
-				assignStmt();
+					setState(18);
+					assignStmt();
 				}
 				break;
-			case ID:
-				enterOuterAlt(_localctx, 2);
+				case ID:
+					enterOuterAlt(_localctx, 2);
 				{
-				setState(19);
-				invocationStmt();
+					setState(19);
+					invocationStmt();
 				}
 				break;
-			case T__1:
-				enterOuterAlt(_localctx, 3);
+				case T__1:
+					enterOuterAlt(_localctx, 3);
 				{
-				setState(20);
-				show();
+					setState(20);
+					show();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
+				default:
+					throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -253,14 +253,14 @@ public class LCTParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(23);
-			match(VAR);
-			setState(24);
-			match(ID);
-			setState(25);
-			match(T__0);
-			setState(26);
-			expr();
+				setState(23);
+				match(VAR);
+				setState(24);
+				match(ID);
+				setState(25);
+				match(T__0);
+				setState(26);
+				expr();
 			}
 		}
 		catch (RecognitionException re) {
@@ -313,36 +313,36 @@ public class LCTParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(28);
-			((InvocationStmtContext)_localctx).name = match(ID);
-			setState(38);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
-			case 1:
-				{
-				setState(34);
+				setState(28);
+				((InvocationStmtContext)_localctx).name = match(ID);
+				setState(38);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
-				while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER ) {
-					if ( _alt==1 ) {
-						{
-						{
-						setState(29);
-						expr();
-						setState(30);
-						match(COMMA);
+				switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+					case 1:
+					{
+						setState(34);
+						_errHandler.sync(this);
+						_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+						while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+							if ( _alt==1 ) {
+								{
+									{
+										setState(29);
+										expr();
+										setState(30);
+										match(COMMA);
+									}
+								}
+							}
+							setState(36);
+							_errHandler.sync(this);
+							_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 						}
-						} 
+						setState(37);
+						expr();
 					}
-					setState(36);
-					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+					break;
 				}
-				setState(37);
-				expr();
-				}
-				break;
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -386,16 +386,16 @@ public class LCTParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(40);
-			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << STRING) | (1L << ID))) != 0)) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
+				setState(40);
+				_la = _input.LA(1);
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << STRING) | (1L << ID))) != 0)) ) {
+					_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 			}
 		}
 		catch (RecognitionException re) {
@@ -439,18 +439,18 @@ public class LCTParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(42);
-			match(T__1);
-			setState(43);
-			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << STRING) | (1L << ID))) != 0)) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
+				setState(42);
+				match(T__1);
+				setState(43);
+				_la = _input.LA(1);
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << STRING) | (1L << ID))) != 0)) ) {
+					_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 			}
 		}
 		catch (RecognitionException re) {
@@ -465,21 +465,21 @@ public class LCTParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13\60\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\7\2\20\n\2\f\2\16\2\23\13\2\3"+
-		"\3\3\3\3\3\5\3\30\n\3\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\7\5#\n\5\f\5"+
-		"\16\5&\13\5\3\5\5\5)\n\5\3\6\3\6\3\7\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\3"+
-		"\3\2\b\n\2.\2\21\3\2\2\2\4\27\3\2\2\2\6\31\3\2\2\2\b\36\3\2\2\2\n*\3\2"+
-		"\2\2\f,\3\2\2\2\16\20\5\4\3\2\17\16\3\2\2\2\20\23\3\2\2\2\21\17\3\2\2"+
-		"\2\21\22\3\2\2\2\22\3\3\2\2\2\23\21\3\2\2\2\24\30\5\6\4\2\25\30\5\b\5"+
-		"\2\26\30\5\f\7\2\27\24\3\2\2\2\27\25\3\2\2\2\27\26\3\2\2\2\30\5\3\2\2"+
-		"\2\31\32\7\6\2\2\32\33\7\n\2\2\33\34\7\3\2\2\34\35\5\n\6\2\35\7\3\2\2"+
-		"\2\36(\7\n\2\2\37 \5\n\6\2 !\7\5\2\2!#\3\2\2\2\"\37\3\2\2\2#&\3\2\2\2"+
-		"$\"\3\2\2\2$%\3\2\2\2%\'\3\2\2\2&$\3\2\2\2\')\5\n\6\2($\3\2\2\2()\3\2"+
-		"\2\2)\t\3\2\2\2*+\t\2\2\2+\13\3\2\2\2,-\7\4\2\2-.\t\2\2\2.\r\3\2\2\2\6"+
-		"\21\27$(";
+			"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13\60\4\2\t\2\4\3"+
+					"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\7\2\20\n\2\f\2\16\2\23\13\2\3"+
+					"\3\3\3\3\3\5\3\30\n\3\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\7\5#\n\5\f\5"+
+					"\16\5&\13\5\3\5\5\5)\n\5\3\6\3\6\3\7\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\3"+
+					"\3\2\b\n\2.\2\21\3\2\2\2\4\27\3\2\2\2\6\31\3\2\2\2\b\36\3\2\2\2\n*\3\2"+
+					"\2\2\f,\3\2\2\2\16\20\5\4\3\2\17\16\3\2\2\2\20\23\3\2\2\2\21\17\3\2\2"+
+					"\2\21\22\3\2\2\2\22\3\3\2\2\2\23\21\3\2\2\2\24\30\5\6\4\2\25\30\5\b\5"+
+					"\2\26\30\5\f\7\2\27\24\3\2\2\2\27\25\3\2\2\2\27\26\3\2\2\2\30\5\3\2\2"+
+					"\2\31\32\7\6\2\2\32\33\7\n\2\2\33\34\7\3\2\2\34\35\5\n\6\2\35\7\3\2\2"+
+					"\2\36(\7\n\2\2\37 \5\n\6\2 !\7\5\2\2!#\3\2\2\2\"\37\3\2\2\2#&\3\2\2\2"+
+					"$\"\3\2\2\2$%\3\2\2\2%\'\3\2\2\2&$\3\2\2\2\')\5\n\6\2($\3\2\2\2()\3\2"+
+					"\2\2)\t\3\2\2\2*+\t\2\2\2+\13\3\2\2\2,-\7\4\2\2-.\t\2\2\2.\r\3\2\2\2\6"+
+					"\21\27$(";
 	public static final ATN _ATN =
-		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
+			new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
 		_decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];
 		for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {
