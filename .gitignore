@@ -1,0 +1,9 @@
+# Ignore generated parser and lexer
+build/
+dist/
+gen/
+libs/
+nbproject/
+.xml
+.iml
+.mf
