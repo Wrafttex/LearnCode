@@ -13,7 +13,7 @@ public class LCTMain
 {
     public static void main(String[] args) {
         try {
-            CharStream input = (CharStream) new ANTLRFileStream("test.LCT");
+            CharStream input = (CharStream) new ANTLRFileStream("Tests/show.LCT");
             LCTLexer lexer = new LCTLexer(input);
             LCTParser parser = new LCTParser(new CommonTokenStream(lexer));
             parser.addParseListener(new LCTCustomBaseListener());

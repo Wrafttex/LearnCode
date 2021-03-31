@@ -1,5 +1,7 @@
 # Ignore generated parser and lexer
 build/
+out/
+Tests/
 dist/
 gen/
 libs/
