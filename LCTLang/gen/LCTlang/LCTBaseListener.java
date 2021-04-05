@@ -1,4 +1,5 @@
-// Generated from LCT.g4 by ANTLR 4.9.2
+// Generated from C:/UnityProjects/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
+package LCTlang;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
