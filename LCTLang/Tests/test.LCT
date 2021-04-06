@@ -1,2 +1,2 @@
-var myvar = 2
-show myvar
+var myvar = 2;
+show myvar;

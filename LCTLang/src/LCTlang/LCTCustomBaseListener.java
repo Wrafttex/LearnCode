@@ -1,7 +1,6 @@
 package LCTlang;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class LCTCustomBaseListener extends LCTBaseListener {
 
@@ -9,31 +8,31 @@ public class LCTCustomBaseListener extends LCTBaseListener {
 
 
 
-    @Override public void exitAssignStmt(LCTParser.AssignStmtContext ctx) {
+    @Override public void exitAssignStatement(LCTParser.AssignStatementContext ctx) {
 
-        this.variableMap.put(ctx.ID().getText(),
-                Integer.parseInt(ctx.expr().getText()));
+        this.variableMap.put(ctx.Var().getText(),
+                Integer.parseInt(ctx.expression().getText()));
     }
 
 
-    @Override public void exitInvocationStmt(LCTParser.InvocationStmtContext ctx) {
+    @Override public void exitInvocationStatement(LCTParser.InvocationStatementContext ctx) {
 
         this.variableMap.put(ctx.name.getText(),
-                Integer.parseInt(ctx.ID().getText()));
+                Integer.parseInt(ctx.Identifier().getText()));
 
     }
 
     @Override
     public void exitShow(LCTParser.ShowContext ctx) {
-        if(ctx.INT() != null){
-            System.out.println(ctx.INT().getText());
+        if(ctx.Int() != null){
+            System.out.println(ctx.Int().getText());
         }
-        if(ctx.STRING() != null)
+        if(ctx.String() != null)
         {
-            System.out.println(ctx.ID().getText());
+            System.out.println(ctx.Identifier().getText());
         }
-        else if(ctx.ID() != null){
-            System.out.println(this.variableMap.get(ctx.ID().getText()));
+        else if(ctx.Identifier() != null){
+            System.out.println(this.variableMap.get(ctx.Identifier().getText()));
         }
     }
 }
