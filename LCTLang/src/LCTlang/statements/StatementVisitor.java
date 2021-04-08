@@ -1,13 +1,20 @@
-package LCTlang;
+package LCTlang.statements;
+
+import LCTlang.LCTBaseVisitor;
+import LCTlang.LCTParser;
+import LCTlang.Value;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
-public class LCTCustomBaseVisitor extends LCTBaseVisitor<Value>
+public class StatementVisitor extends LCTBaseVisitor<Value>
 {
     private Map<String, Value> memory = new HashMap<String, Value>();
 
+/* Start of all Statements
+*  Start of all Statements
+*  Start of all Statements*/
     @Override public Value visitAssignStatement(LCTParser.AssignStatementContext ctx)
     {
         String id = ctx.Identifier().getText();
@@ -26,6 +33,56 @@ public class LCTCustomBaseVisitor extends LCTBaseVisitor<Value>
         else
             throw new RuntimeException("no such variable: " + id);
     }
+
+    @Override public Value visitForStatement(LCTParser.ForStatementContext ctx)
+    {
+        int start = Integer.parseInt(ctx.forCondition().startExpr.getText());
+        int end = Integer.parseInt(ctx.forCondition().endExpr.getText());
+        int i;
+
+        for (i = start; i < end; i++){
+            this.visit(ctx.statementBlock());
+        }
+
+        return Value.VOID;
+    }
+
+    @Override public Value visitIfStatement(LCTParser.IfStatementContext ctx) {
+
+        List<LCTParser.ConditionBlockContext> conditions =  ctx.conditionBlock();
+
+        boolean evaluatedBlock = false;
+
+        for(LCTParser.ConditionBlockContext condition : conditions) {
+
+            Value evaluated = this.visit(condition.expr());
+
+            if(evaluated.asBoolean()) {
+                evaluatedBlock = true;
+                // evaluate this block whose expr==true
+                this.visit(condition.statementBlock());
+                break;
+            }
+        }
+
+        if(!evaluatedBlock && ctx.statementBlock() != null) {
+            // evaluate the else-stat_block (if present == not null)
+            this.visit(ctx.statementBlock());
+        }
+
+        return Value.VOID;
+    }
+
+
+     /* Start of all Variables
+     *  Start of all Variables
+     *  Start of all Variables*/
+
+     @Override public Value visitVariableExpr(LCTParser.VariableExprContext ctx) {
+         Value value = this.visit(ctx.variable());
+         return value;
+     }
+
 
     @Override public Value visitIdentifierVariable(LCTParser.IdentifierVariableContext ctx) {
         String id = ctx.getText();
@@ -51,25 +108,43 @@ public class LCTCustomBaseVisitor extends LCTBaseVisitor<Value>
         return new Value(Boolean.valueOf(ctx.getText()));
     }
 
-    @Override public Value visitOutput(LCTParser.OutputContext ctx)
-    {
-        Value value = this.visit(ctx.expr());
-        System.out.println(value);
-        return value;
+    /* Start of all Expr
+    *  Start of all Expr
+    *  Start of all Expr*/
+
+    @Override public Value visitPostIncrementExpr(LCTParser.PostIncrementExprContext ctx) {
+        Value expression = this.visit(ctx.expr());
+        int i = 1;
+        return new Value(expression.asDouble() + i);
+
     }
 
-    @Override public Value visitForStatement(LCTParser.ForStatementContext ctx)
-    {
-        int start = Integer.parseInt(ctx.forCondition().startExpr.getText());
-        int end = Integer.parseInt(ctx.forCondition().endExpr.getText());
-        int i;
-
-        for (i = start; i < end; i++){
-            this.visit(ctx.statementBlock());
-        }
-
-        return Value.VOID;
+    @Override public Value visitPostDecrementExpr(LCTParser.PostDecrementExprContext ctx) {
+        Value expression = this.visit(ctx.expr());
+        int i = 1;
+        return new Value(expression.asDouble() - i);
     }
+
+    @Override public Value visitPreIncrementExpr(LCTParser.PreIncrementExprContext ctx) {
+        Value expression = this.visit(ctx.expr());
+        int i = 1;
+        return new Value(i + expression.asDouble());
+    }
+
+    @Override public Value visitPreDecrementExpr(LCTParser.PreDecrementExprContext ctx) {
+        Value expression = this.visit(ctx.expr());
+        int i = -1;
+        return new Value(i + expression.asDouble());
+    }
+
+
+    @Override public Value visitPowerExpr(LCTParser.PowerExprContext ctx) {
+        Value left = this.visit(ctx.expr(0));
+        Value right = this.visit(ctx.expr(1));
+        return new Value(Math.pow(left.asDouble(), right.asDouble()));
+
+    }
+
 
     @Override public Value visitAdditiveExpr(LCTParser.AdditiveExprContext ctx)
     {
@@ -158,29 +233,12 @@ public class LCTCustomBaseVisitor extends LCTBaseVisitor<Value>
         return new Value(left.asBoolean() || right.asBoolean());
     }
 
-    @Override public Value visitIfStatement(LCTParser.IfStatementContext ctx) {
-
-        List<LCTParser.ConditionBlockContext> conditions =  ctx.conditionBlock();
-
-        boolean evaluatedBlock = false;
-
-        for(LCTParser.ConditionBlockContext condition : conditions) {
-
-            Value evaluated = this.visit(condition.expr());
-
-            if(evaluated.asBoolean()) {
-                evaluatedBlock = true;
-                // evaluate this block whose expr==true
-                this.visit(condition.statementBlock());
-                break;
-            }
-        }
-
-        if(!evaluatedBlock && ctx.statementBlock() != null) {
-            // evaluate the else-stat_block (if present == not null)
-            this.visit(ctx.statementBlock());
-        }
-
-        return Value.VOID;
+    //OUTPUT
+    @Override public Value visitOutput(LCTParser.OutputContext ctx)
+    {
+        Value value = this.visit(ctx.expr());
+        System.out.println(value);
+        return value;
     }
+
 }

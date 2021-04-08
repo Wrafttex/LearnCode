@@ -1,4 +1,7 @@
-package LCTlang;
+package LCTlang.functions;
+
+import LCTlang.LCTBaseVisitor;
+import LCTlang.LCTParser;
 
 public class FunctionVisitor extends LCTBaseVisitor<Object> {
 
