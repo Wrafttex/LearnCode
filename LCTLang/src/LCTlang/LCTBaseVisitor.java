@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // Generated from C:/Users/PC/Desktop/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
+=======
+// Generated from E:/Projects/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
+>>>>>>> Loops
 package LCTlang;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -31,20 +35,29 @@ public class LCTBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements LC
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitAssignStatement(LCTParser.AssignStatementContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitAssignment(LCTParser.AssignmentContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitInvocationStatement(LCTParser.InvocationStatementContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitReassignment(LCTParser.ReassignmentContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitStatementList(LCTParser.StatementListContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -123,67 +136,162 @@ public class LCTBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements LC
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitIdentifierExpression(LCTParser.IdentifierExpressionContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitOutput(LCTParser.OutputContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitShow(LCTParser.ShowContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitStatementBlock(LCTParser.StatementBlockContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitBlock(LCTParser.BlockContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitFunctionBody(LCTParser.FunctionBodyContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitForStatement(LCTParser.ForStatementContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitFunctionBlock(LCTParser.FunctionBlockContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitForCondition(LCTParser.ForConditionContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitIdentifier(LCTParser.IdentifierContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitIfStatement(LCTParser.IfStatementContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitFunctionIdentifier(LCTParser.FunctionIdentifierContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitConditionBlock(LCTParser.ConditionBlockContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitArguments(LCTParser.ArgumentsContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitVariablesExpr(LCTParser.VariablesExprContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitFunctionName(LCTParser.FunctionNameContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitPlusMinusExpr(LCTParser.PlusMinusExprContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+<<<<<<< HEAD
 	@Override public T visitReturnStatement(LCTParser.ReturnStatementContext ctx) { return visitChildren(ctx); }
+=======
+	@Override public T visitOrExpr(LCTParser.OrExprContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitMultiDivExpr(LCTParser.MultiDivExprContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitRelationalExpr(LCTParser.RelationalExprContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitEqualExpr(LCTParser.EqualExprContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitAndExpr(LCTParser.AndExprContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitNumberVariable(LCTParser.NumberVariableContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitStringVariable(LCTParser.StringVariableContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitIdVariable(LCTParser.IdVariableContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitBooleanVariable(LCTParser.BooleanVariableContext ctx) { return visitChildren(ctx); }
+>>>>>>> Loops
 }

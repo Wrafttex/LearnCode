@@ -1,12 +1,4 @@
-// Generated from C:/Users/PC/Desktop/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
-package LCTlang;
-
-import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.tree.ErrorNode;
-import org.antlr.v4.runtime.tree.TerminalNode;
-
 /**
- * This class provides an empty implementation of {@link LCTListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
@@ -40,277 +32,241 @@ public class LCTBaseListener implements LCTListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssignStatement(LCTParser.AssignStatementContext ctx) { }
+	@Override public void enterAssignment(LCTParser.AssignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssignStatement(LCTParser.AssignStatementContext ctx) { }
+	@Override public void exitAssignment(LCTParser.AssignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInvocationStatement(LCTParser.InvocationStatementContext ctx) { }
+	@Override public void enterReassignment(LCTParser.ReassignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInvocationStatement(LCTParser.InvocationStatementContext ctx) { }
+	@Override public void exitReassignment(LCTParser.ReassignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatementList(LCTParser.StatementListContext ctx) { }
+	@Override public void enterOutput(LCTParser.OutputContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStatementList(LCTParser.StatementListContext ctx) { }
+	@Override public void exitOutput(LCTParser.OutputContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIDK(LCTParser.IDKContext ctx) { }
+	@Override public void enterStatementBlock(LCTParser.StatementBlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIDK(LCTParser.IDKContext ctx) { }
+	@Override public void exitStatementBlock(LCTParser.StatementBlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAdditiveExpression(LCTParser.AdditiveExpressionContext ctx) { }
+	@Override public void enterBlock(LCTParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAdditiveExpression(LCTParser.AdditiveExpressionContext ctx) { }
+	@Override public void exitBlock(LCTParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPostIncrementExpression(LCTParser.PostIncrementExpressionContext ctx) { }
+	@Override public void enterForStatement(LCTParser.ForStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPostIncrementExpression(LCTParser.PostIncrementExpressionContext ctx) { }
+	@Override public void exitForStatement(LCTParser.ForStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPreDecrementExpression(LCTParser.PreDecrementExpressionContext ctx) { }
+	@Override public void enterForCondition(LCTParser.ForConditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPreDecrementExpression(LCTParser.PreDecrementExpressionContext ctx) { }
+	@Override public void exitForCondition(LCTParser.ForConditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPowerExpression(LCTParser.PowerExpressionContext ctx) { }
+	@Override public void enterIfStatement(LCTParser.IfStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPowerExpression(LCTParser.PowerExpressionContext ctx) { }
+	@Override public void exitIfStatement(LCTParser.IfStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPreIncrementExpression(LCTParser.PreIncrementExpressionContext ctx) { }
+	@Override public void enterConditionBlock(LCTParser.ConditionBlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPreIncrementExpression(LCTParser.PreIncrementExpressionContext ctx) { }
+	@Override public void exitConditionBlock(LCTParser.ConditionBlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssignmentExpression(LCTParser.AssignmentExpressionContext ctx) { }
+	@Override public void enterVariablesExpr(LCTParser.VariablesExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssignmentExpression(LCTParser.AssignmentExpressionContext ctx) { }
+	@Override public void exitVariablesExpr(LCTParser.VariablesExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNotExpression(LCTParser.NotExpressionContext ctx) { }
+	@Override public void enterPlusMinusExpr(LCTParser.PlusMinusExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNotExpression(LCTParser.NotExpressionContext ctx) { }
+	@Override public void exitPlusMinusExpr(LCTParser.PlusMinusExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPostDecrementExpression(LCTParser.PostDecrementExpressionContext ctx) { }
+	@Override public void enterOrExpr(LCTParser.OrExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPostDecrementExpression(LCTParser.PostDecrementExpressionContext ctx) { }
+	@Override public void exitOrExpr(LCTParser.OrExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMultiplicativeExpression(LCTParser.MultiplicativeExpressionContext ctx) { }
+	@Override public void enterMultiDivExpr(LCTParser.MultiDivExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMultiplicativeExpression(LCTParser.MultiplicativeExpressionContext ctx) { }
+	@Override public void exitMultiDivExpr(LCTParser.MultiDivExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdentifierExpression(LCTParser.IdentifierExpressionContext ctx) { }
+	@Override public void enterRelationalExpr(LCTParser.RelationalExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdentifierExpression(LCTParser.IdentifierExpressionContext ctx) { }
+	@Override public void exitRelationalExpr(LCTParser.RelationalExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterShow(LCTParser.ShowContext ctx) { }
+	@Override public void enterEqualExpr(LCTParser.EqualExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitShow(LCTParser.ShowContext ctx) { }
+	@Override public void exitEqualExpr(LCTParser.EqualExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx) { }
+	@Override public void enterAndExpr(LCTParser.AndExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx) { }
+	@Override public void exitAndExpr(LCTParser.AndExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionBody(LCTParser.FunctionBodyContext ctx) { }
+	@Override public void enterNumberVariable(LCTParser.NumberVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionBody(LCTParser.FunctionBodyContext ctx) { }
+	@Override public void exitNumberVariable(LCTParser.NumberVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionBlock(LCTParser.FunctionBlockContext ctx) { }
+	@Override public void enterStringVariable(LCTParser.StringVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionBlock(LCTParser.FunctionBlockContext ctx) { }
+	@Override public void exitStringVariable(LCTParser.StringVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdentifier(LCTParser.IdentifierContext ctx) { }
+	@Override public void enterIdVariable(LCTParser.IdVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdentifier(LCTParser.IdentifierContext ctx) { }
+	@Override public void exitIdVariable(LCTParser.IdVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionIdentifier(LCTParser.FunctionIdentifierContext ctx) { }
+	@Override public void enterBooleanVariable(LCTParser.BooleanVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionIdentifier(LCTParser.FunctionIdentifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArguments(LCTParser.ArgumentsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArguments(LCTParser.ArgumentsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFunctionName(LCTParser.FunctionNameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunctionName(LCTParser.FunctionNameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterReturnStatement(LCTParser.ReturnStatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitReturnStatement(LCTParser.ReturnStatementContext ctx) { }
+	@Override public void exitBooleanVariable(LCTParser.BooleanVariableContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
