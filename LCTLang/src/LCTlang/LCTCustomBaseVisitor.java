@@ -8,16 +8,16 @@ public class LCTCustomBaseVisitor extends LCTBaseVisitor<Value>
 {
     private Map<String, Value> memory = new HashMap<String, Value>();
 
-    @Override public Value visitAssignment(LCTParser.AssignmentContext ctx)
+    @Override public Value visitAssignStatement(LCTParser.AssignStatementContext ctx)
     {
-        String id = ctx.ID().getText();
+        String id = ctx.Identifier().getText();
         Value value = this.visit(ctx.expr());
         return memory.put(id, value);
     }
 
     @Override public Value visitReassignment(LCTParser.ReassignmentContext ctx)
     {
-        String id = ctx.ID().getText();
+        String id = ctx.Identifier().getText();
 
         if (memory.containsKey(id)) {
             Value value = this.visit(ctx.expr());
@@ -27,7 +27,7 @@ public class LCTCustomBaseVisitor extends LCTBaseVisitor<Value>
             throw new RuntimeException("no such variable: " + id);
     }
 
-    @Override public Value visitIdVariable(LCTParser.IdVariableContext ctx) {
+    @Override public Value visitIdentifierVariable(LCTParser.IdentifierVariableContext ctx) {
         String id = ctx.getText();
         Value value = memory.get(id);
         if(value == null) {
@@ -71,32 +71,32 @@ public class LCTCustomBaseVisitor extends LCTBaseVisitor<Value>
         return Value.VOID;
     }
 
-    @Override public Value visitPlusMinusExpr(LCTParser.PlusMinusExprContext ctx)
+    @Override public Value visitAdditiveExpr(LCTParser.AdditiveExprContext ctx)
     {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
         switch (ctx.op.getType()) {
-            case LCTParser.PLUS:
+            case LCTParser.Plus:
                 return left.isDouble() && right.isDouble() ?
                         new Value(left.asDouble() + right.asDouble()) :
                         new Value(left.asString() + right.asString());
-            case LCTParser.MINUS:
+            case LCTParser.Minus:
                 return new Value(left.asDouble() - right.asDouble());
             default:
                 throw new RuntimeException("unknown operator: " + LCTParser.tokenNames[ctx.op.getType()]);
         }
     }
 
-    @Override public Value visitMultiDivExpr(LCTParser.MultiDivExprContext ctx)
+    @Override public Value visitMultiplicativeExpr(LCTParser.MultiplicativeExprContext ctx)
     {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
         switch (ctx.op.getType()) {
-            case LCTParser.MULTIPLICATION:
+            case LCTParser.Multiply:
                 return new Value(left.asDouble() * right.asDouble());
-            case LCTParser.DIVISION:
+            case LCTParser.Divide:
                 if (left.asDouble() == 0 || right.asDouble() == 0) {
                     //throw new RuntimeException("Division with 0 is illegal");
                     System.out.println("Division with 0 is illegal");
@@ -114,13 +114,13 @@ public class LCTCustomBaseVisitor extends LCTBaseVisitor<Value>
         Value right = this.visit(ctx.expr(1));
 
         switch (ctx.op.getType()) {
-            case LCTParser.LESSTHAN:
+            case LCTParser.LessThan:
                 return new Value(left.asDouble() < right.asDouble());
-            case LCTParser.LESSEQUAL:
+            case LCTParser.LessEqual:
                 return new Value(left.asDouble() <= right.asDouble());
-            case LCTParser.GREATERTHAN:
+            case LCTParser.MoreThan:
                 return new Value(left.asDouble() > right.asDouble());
-            case LCTParser.GREATEREQUAL:
+            case LCTParser.MoreEqual:
                 return new Value(left.asDouble() >= right.asDouble());
             default:
                 throw new RuntimeException("unknown operator: " + LCTParser.tokenNames[ctx.op.getType()]);
@@ -133,12 +133,12 @@ public class LCTCustomBaseVisitor extends LCTBaseVisitor<Value>
         Value right = this.visit(ctx.expr(1));
 
         switch (ctx.op.getType()) {
-            case LCTParser.EQUAL:
-                if (left.isDouble() && right.isDouble())
-                    return new Value(left.equals(right));
-            case LCTParser.NOTEQUAL:
+            case LCTParser.Equal:
                 if (left.isDouble() && right.isDouble())
                     return new Value(!left.equals(right));
+            case LCTParser.NotEqual:
+                if (left.isDouble() && right.isDouble())
+                    return new Value(left.equals(right));
             default:
                 throw new RuntimeException("unknown operator: " + LCTParser.tokenNames[ctx.op.getType()]);
         }

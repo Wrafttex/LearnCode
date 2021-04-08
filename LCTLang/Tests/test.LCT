@@ -1,2 +1,23 @@
-var myvar = 2;
-show myvar;
+var five = 5 == 5
+
+loop i from 0 to 5
+    output five
+end
+
+output "Im out of the loop"
+
+
+function x() {
+output "hi"
+}
+
+var x = 1
+
+loop i from 0 to 5
+    x = 5
+    output x
+end
+
+if (x==x)
+output 2+2
+end

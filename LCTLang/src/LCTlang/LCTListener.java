@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // Generated from C:/Users/PC/Desktop/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
-=======
-// Generated from E:/Projects/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
->>>>>>> Loops
 package LCTlang;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -32,7 +28,6 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitStatement(LCTParser.StatementContext ctx);
 	/**
-<<<<<<< HEAD
 	 * Enter a parse tree produced by {@link LCTParser#assignStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -42,168 +37,6 @@ public interface LCTListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAssignStatement(LCTParser.AssignStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#invocationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterInvocationStatement(LCTParser.InvocationStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#invocationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitInvocationStatement(LCTParser.InvocationStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#statementList}.
-	 * @param ctx the parse tree
-	 */
-	void enterStatementList(LCTParser.StatementListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#statementList}.
-	 * @param ctx the parse tree
-	 */
-	void exitStatementList(LCTParser.StatementListContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code IDK}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterIDK(LCTParser.IDKContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code IDK}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitIDK(LCTParser.IDKContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code AdditiveExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAdditiveExpression(LCTParser.AdditiveExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AdditiveExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAdditiveExpression(LCTParser.AdditiveExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PostIncrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterPostIncrementExpression(LCTParser.PostIncrementExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PostIncrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitPostIncrementExpression(LCTParser.PostIncrementExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PreDecrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterPreDecrementExpression(LCTParser.PreDecrementExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PreDecrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitPreDecrementExpression(LCTParser.PreDecrementExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PowerExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterPowerExpression(LCTParser.PowerExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PowerExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitPowerExpression(LCTParser.PowerExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PreIncrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterPreIncrementExpression(LCTParser.PreIncrementExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PreIncrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitPreIncrementExpression(LCTParser.PreIncrementExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code AssignmentExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssignmentExpression(LCTParser.AssignmentExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AssignmentExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssignmentExpression(LCTParser.AssignmentExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NotExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterNotExpression(LCTParser.NotExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NotExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitNotExpression(LCTParser.NotExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PostDecrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterPostDecrementExpression(LCTParser.PostDecrementExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PostDecrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitPostDecrementExpression(LCTParser.PostDecrementExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code MultiplicativeExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterMultiplicativeExpression(LCTParser.MultiplicativeExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code MultiplicativeExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitMultiplicativeExpression(LCTParser.MultiplicativeExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code IdentifierExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdentifierExpression(LCTParser.IdentifierExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code IdentifierExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdentifierExpression(LCTParser.IdentifierExpressionContext ctx);
-=======
-	 * Enter a parse tree produced by {@link LCTParser#assignment}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssignment(LCTParser.AssignmentContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#assignment}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssignment(LCTParser.AssignmentContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LCTParser#reassignment}.
 	 * @param ctx the parse tree
@@ -224,18 +57,220 @@ public interface LCTListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitOutput(LCTParser.OutputContext ctx);
->>>>>>> Loops
 	/**
-	 * Enter a parse tree produced by {@link LCTParser#statementBlock}.
+	 * Enter a parse tree produced by {@link LCTParser#statementList}.
 	 * @param ctx the parse tree
 	 */
-	void enterStatementBlock(LCTParser.StatementBlockContext ctx);
+	void enterStatementList(LCTParser.StatementListContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LCTParser#statementBlock}.
+	 * Exit a parse tree produced by {@link LCTParser#statementList}.
 	 * @param ctx the parse tree
 	 */
-<<<<<<< HEAD
-	void exitShow(LCTParser.ShowContext ctx);
+	void exitStatementList(LCTParser.StatementListContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code AndExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterAndExpr(LCTParser.AndExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code AndExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitAndExpr(LCTParser.AndExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code EqualExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterEqualExpr(LCTParser.EqualExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code EqualExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitEqualExpr(LCTParser.EqualExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PreDecrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterPreDecrementExpr(LCTParser.PreDecrementExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PreDecrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitPreDecrementExpr(LCTParser.PreDecrementExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code RelationalExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelationalExpr(LCTParser.RelationalExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code RelationalExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelationalExpr(LCTParser.RelationalExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code OrExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterOrExpr(LCTParser.OrExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code OrExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitOrExpr(LCTParser.OrExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PostIncrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterPostIncrementExpr(LCTParser.PostIncrementExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PostIncrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitPostIncrementExpr(LCTParser.PostIncrementExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PreIncrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterPreIncrementExpr(LCTParser.PreIncrementExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PreIncrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitPreIncrementExpr(LCTParser.PreIncrementExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PowerExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterPowerExpr(LCTParser.PowerExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PowerExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitPowerExpr(LCTParser.PowerExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MultiplicativeExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiplicativeExpr(LCTParser.MultiplicativeExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MultiplicativeExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiplicativeExpr(LCTParser.MultiplicativeExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code AdditiveExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterAdditiveExpr(LCTParser.AdditiveExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code AdditiveExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitAdditiveExpr(LCTParser.AdditiveExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PostDecrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterPostDecrementExpr(LCTParser.PostDecrementExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PostDecrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitPostDecrementExpr(LCTParser.PostDecrementExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code VariableExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableExpr(LCTParser.VariableExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code VariableExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableExpr(LCTParser.VariableExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code NotExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterNotExpr(LCTParser.NotExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code NotExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitNotExpr(LCTParser.NotExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code NumberVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumberVariable(LCTParser.NumberVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code NumberVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumberVariable(LCTParser.NumberVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code IdentifierVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentifierVariable(LCTParser.IdentifierVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code IdentifierVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentifierVariable(LCTParser.IdentifierVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code StringVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringVariable(LCTParser.StringVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code StringVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringVariable(LCTParser.StringVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BooleanVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterBooleanVariable(LCTParser.BooleanVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BooleanVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitBooleanVariable(LCTParser.BooleanVariableContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LCTParser#functionDeclaration}.
 	 * @param ctx the parse tree
@@ -316,18 +351,16 @@ public interface LCTListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitReturnStatement(LCTParser.ReturnStatementContext ctx);
-=======
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#statementBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementBlock(LCTParser.StatementBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#statementBlock}.
+	 * @param ctx the parse tree
+	 */
 	void exitStatementBlock(LCTParser.StatementBlockContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#block}.
-	 * @param ctx the parse tree
-	 */
-	void enterBlock(LCTParser.BlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#block}.
-	 * @param ctx the parse tree
-	 */
-	void exitBlock(LCTParser.BlockContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LCTParser#forStatement}.
 	 * @param ctx the parse tree
@@ -368,137 +401,4 @@ public interface LCTListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitConditionBlock(LCTParser.ConditionBlockContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code variablesExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariablesExpr(LCTParser.VariablesExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code variablesExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariablesExpr(LCTParser.VariablesExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code plusMinusExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterPlusMinusExpr(LCTParser.PlusMinusExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code plusMinusExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitPlusMinusExpr(LCTParser.PlusMinusExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code orExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterOrExpr(LCTParser.OrExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code orExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitOrExpr(LCTParser.OrExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code multiDivExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterMultiDivExpr(LCTParser.MultiDivExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code multiDivExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitMultiDivExpr(LCTParser.MultiDivExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code relationalExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterRelationalExpr(LCTParser.RelationalExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code relationalExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitRelationalExpr(LCTParser.RelationalExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code equalExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterEqualExpr(LCTParser.EqualExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code equalExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitEqualExpr(LCTParser.EqualExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code andExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterAndExpr(LCTParser.AndExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code andExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitAndExpr(LCTParser.AndExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code numberVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumberVariable(LCTParser.NumberVariableContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code numberVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumberVariable(LCTParser.NumberVariableContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code stringVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 */
-	void enterStringVariable(LCTParser.StringVariableContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code stringVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 */
-	void exitStringVariable(LCTParser.StringVariableContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code idVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdVariable(LCTParser.IdVariableContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code idVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdVariable(LCTParser.IdVariableContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code booleanVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 */
-	void enterBooleanVariable(LCTParser.BooleanVariableContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code booleanVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 */
-	void exitBooleanVariable(LCTParser.BooleanVariableContext ctx);
->>>>>>> Loops
 }

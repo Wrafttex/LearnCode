@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // Generated from C:/Users/PC/Desktop/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
-=======
-// Generated from E:/Projects/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
->>>>>>> Loops
 package LCTlang;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -27,107 +23,11 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatement(LCTParser.StatementContext ctx);
 	/**
-<<<<<<< HEAD
 	 * Visit a parse tree produced by {@link LCTParser#assignStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAssignStatement(LCTParser.AssignStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#invocationStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInvocationStatement(LCTParser.InvocationStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#statementList}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStatementList(LCTParser.StatementListContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IDK}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIDK(LCTParser.IDKContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code AdditiveExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAdditiveExpression(LCTParser.AdditiveExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code PostIncrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPostIncrementExpression(LCTParser.PostIncrementExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code PreDecrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPreDecrementExpression(LCTParser.PreDecrementExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code PowerExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPowerExpression(LCTParser.PowerExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code PreIncrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPreIncrementExpression(LCTParser.PreIncrementExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code AssignmentExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAssignmentExpression(LCTParser.AssignmentExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code NotExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNotExpression(LCTParser.NotExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code PostDecrementExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPostDecrementExpression(LCTParser.PostDecrementExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code MultiplicativeExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMultiplicativeExpression(LCTParser.MultiplicativeExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IdentifierExpression}
-	 * labeled alternative in {@link LCTParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIdentifierExpression(LCTParser.IdentifierExpressionContext ctx);
-=======
-	 * Visit a parse tree produced by {@link LCTParser#assignment}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAssignment(LCTParser.AssignmentContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LCTParser#reassignment}.
 	 * @param ctx the parse tree
@@ -140,14 +40,131 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitOutput(LCTParser.OutputContext ctx);
->>>>>>> Loops
 	/**
-	 * Visit a parse tree produced by {@link LCTParser#statementBlock}.
+	 * Visit a parse tree produced by {@link LCTParser#statementList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-<<<<<<< HEAD
-	T visitShow(LCTParser.ShowContext ctx);
+	T visitStatementList(LCTParser.StatementListContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AndExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAndExpr(LCTParser.AndExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code EqualExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEqualExpr(LCTParser.EqualExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PreDecrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPreDecrementExpr(LCTParser.PreDecrementExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code RelationalExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelationalExpr(LCTParser.RelationalExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code OrExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOrExpr(LCTParser.OrExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PostIncrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPostIncrementExpr(LCTParser.PostIncrementExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PreIncrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPreIncrementExpr(LCTParser.PreIncrementExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PowerExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPowerExpr(LCTParser.PowerExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MultiplicativeExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiplicativeExpr(LCTParser.MultiplicativeExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AdditiveExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAdditiveExpr(LCTParser.AdditiveExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PostDecrementExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPostDecrementExpr(LCTParser.PostDecrementExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code VariableExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableExpr(LCTParser.VariableExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code NotExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNotExpr(LCTParser.NotExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code NumberVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNumberVariable(LCTParser.NumberVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code IdentifierVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdentifierVariable(LCTParser.IdentifierVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code StringVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStringVariable(LCTParser.StringVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BooleanVariable}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBooleanVariable(LCTParser.BooleanVariableContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LCTParser#functionDeclaration}.
 	 * @param ctx the parse tree
@@ -196,14 +213,12 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitReturnStatement(LCTParser.ReturnStatementContext ctx);
-=======
-	T visitStatementBlock(LCTParser.StatementBlockContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LCTParser#block}.
+	 * Visit a parse tree produced by {@link LCTParser#statementBlock}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBlock(LCTParser.BlockContext ctx);
+	T visitStatementBlock(LCTParser.StatementBlockContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LCTParser#forStatement}.
 	 * @param ctx the parse tree
@@ -228,82 +243,4 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitConditionBlock(LCTParser.ConditionBlockContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code variablesExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVariablesExpr(LCTParser.VariablesExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code plusMinusExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPlusMinusExpr(LCTParser.PlusMinusExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code orExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOrExpr(LCTParser.OrExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code multiDivExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMultiDivExpr(LCTParser.MultiDivExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code relationalExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRelationalExpr(LCTParser.RelationalExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code equalExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEqualExpr(LCTParser.EqualExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code andExpr}
-	 * labeled alternative in {@link LCTParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAndExpr(LCTParser.AndExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code numberVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNumberVariable(LCTParser.NumberVariableContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code stringVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStringVariable(LCTParser.StringVariableContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code idVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIdVariable(LCTParser.IdVariableContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code booleanVariable}
-	 * labeled alternative in {@link LCTParser#variables}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBooleanVariable(LCTParser.BooleanVariableContext ctx);
->>>>>>> Loops
 }
