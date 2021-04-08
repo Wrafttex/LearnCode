@@ -1,0 +1,5 @@
+var five = 5
+loop i from 0 to 5
+{
+    output five
+}
