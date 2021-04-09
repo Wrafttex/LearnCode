@@ -1,30 +1,30 @@
-var five = 5
+var print = ""
+var i = 0
 
-loop i from 0 to 5
-    if ( five > 3 ) then
-        five = five--
-        output five
-    end else then
-        output five
+var fizz = 3
+var buzz = 5
+
+var test1
+var test2
+
+loop i from 0 to 50
+    i = i++
+    print = ""
+
+    if ( i % fizz == 0 ) then
+        print = print + "Fizz"
     end
-end
-output "Im out of the loop"
 
+    if ( i % buzz == 0 ) then
+        print = print + "Buzz"
+    end
 
-function x() {
-output "hi"
-}
+    if ( print == "") then
+        print = i
+    end
 
-var x = 1
+    output (print)
 
-loop i from 0 to 2
-    x = 5
-    output x
-end
-
-
-output 2^8
-output --7
 end
 
 

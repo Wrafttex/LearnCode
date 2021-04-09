@@ -76,18 +76,6 @@ public class LCTBaseListener implements LCTListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatementList(LCTParser.StatementListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStatementList(LCTParser.StatementListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterAndExpr(LCTParser.AndExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -304,30 +292,6 @@ public class LCTBaseListener implements LCTListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionBody(LCTParser.FunctionBodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunctionBody(LCTParser.FunctionBodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFunctionBlock(LCTParser.FunctionBlockContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunctionBlock(LCTParser.FunctionBlockContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterIdentifier(LCTParser.IdentifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -335,18 +299,6 @@ public class LCTBaseListener implements LCTListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIdentifier(LCTParser.IdentifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFunctionIdentifier(LCTParser.FunctionIdentifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunctionIdentifier(LCTParser.FunctionIdentifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

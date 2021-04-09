@@ -18,11 +18,9 @@ public class FunctionVisitor extends LCTBaseVisitor<Object> {
         return visitChildren(ctx);
     }
 
-    @Override public Object visitFunctionBody(LCTParser.FunctionBodyContext ctx) { return visitChildren(ctx); }
+
 
     @Override public Object visitIdentifier(LCTParser.IdentifierContext ctx) { return visitChildren(ctx); }
-
-    @Override public Object visitFunctionIdentifier(LCTParser.FunctionIdentifierContext ctx) { return visitChildren(ctx); }
 
     @Override public Object visitArguments(LCTParser.ArgumentsContext ctx) { return visitChildren(ctx); }
 

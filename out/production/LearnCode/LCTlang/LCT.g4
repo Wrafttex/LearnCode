@@ -12,7 +12,6 @@ statement
     | ifStatement
     | forStatement
     | functionDeclaration
-    | functionBlock
     ;
 
 assignStatement
@@ -25,11 +24,7 @@ reassignment
     ;
 
 output
-    : Print expr
-    ;
-
-statementList
-    : statement+
+    : Print LeftParen expr RightParen
     ;
 
 expr
@@ -55,26 +50,13 @@ variable
     | (True | False)                     # BooleanVariable
     ;
 
-
 functionDeclaration
-    : Function identifier '(' arguments? ')' functionBody
-    ;
-
-functionBody
-    : '{' statement+ '}'
-    ;
-
-functionBlock
-    : '{' statementList? '}'
+    : Function identifier '(' arguments? ')' statementBlock
     ;
 
 identifier
-    : functionIdentifier
-    ;
-
-functionIdentifier
-    : functionName
-    | Identifier
+    : Identifier
+    | functionName
     ;
 
 arguments

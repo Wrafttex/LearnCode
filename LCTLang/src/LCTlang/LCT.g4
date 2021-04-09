@@ -24,7 +24,7 @@ reassignment
     ;
 
 output
-    : Print expr
+    : Print LeftParen expr RightParen
     ;
 
 expr
@@ -51,11 +51,7 @@ variable
     ;
 
 functionDeclaration
-    : Function identifier '(' arguments? ')' functionBody
-    ;
-
-functionBody
-    : statementBlock
+    : Function identifier '(' arguments? ')' statementBlock
     ;
 
 identifier

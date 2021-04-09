@@ -41,12 +41,6 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitOutput(LCTParser.OutputContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LCTParser#statementList}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStatementList(LCTParser.StatementListContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code AndExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
@@ -172,29 +166,11 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LCTParser#functionBody}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunctionBody(LCTParser.FunctionBodyContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#functionBlock}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunctionBlock(LCTParser.FunctionBlockContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link LCTParser#identifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitIdentifier(LCTParser.IdentifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#functionIdentifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunctionIdentifier(LCTParser.FunctionIdentifierContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LCTParser#arguments}.
 	 * @param ctx the parse tree

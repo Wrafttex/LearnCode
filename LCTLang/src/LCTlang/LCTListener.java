@@ -58,16 +58,6 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitOutput(LCTParser.OutputContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LCTParser#statementList}.
-	 * @param ctx the parse tree
-	 */
-	void enterStatementList(LCTParser.StatementListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#statementList}.
-	 * @param ctx the parse tree
-	 */
-	void exitStatementList(LCTParser.StatementListContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code AndExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
@@ -282,26 +272,6 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LCTParser#functionBody}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunctionBody(LCTParser.FunctionBodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#functionBody}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunctionBody(LCTParser.FunctionBodyContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#functionBlock}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunctionBlock(LCTParser.FunctionBlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#functionBlock}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunctionBlock(LCTParser.FunctionBlockContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link LCTParser#identifier}.
 	 * @param ctx the parse tree
 	 */
@@ -311,16 +281,6 @@ public interface LCTListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIdentifier(LCTParser.IdentifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#functionIdentifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunctionIdentifier(LCTParser.FunctionIdentifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#functionIdentifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunctionIdentifier(LCTParser.FunctionIdentifierContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LCTParser#arguments}.
 	 * @param ctx the parse tree

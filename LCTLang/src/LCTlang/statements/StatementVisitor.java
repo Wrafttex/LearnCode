@@ -17,9 +17,15 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
 *  Start of all Statements*/
     @Override public Value visitAssignStatement(LCTParser.AssignStatementContext ctx)
     {
-        String id = ctx.Identifier().getText();
-        Value value = this.visit(ctx.expr());
-        return memory.put(id, value);
+        if (ctx.getText().contains("=")) {
+            String id = ctx.Identifier().getText();
+            Value value = this.visit(ctx.expr());
+            return memory.put(id, value);
+        } else {
+            String id = ctx.Identifier().getText();
+            Value value = Value.VOID;
+            return memory.put(id, value);
+    }
     }
 
     @Override public Value visitReassignment(LCTParser.ReassignmentContext ctx)
@@ -52,9 +58,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     }
 
     @Override public Value visitIfStatement(LCTParser.IfStatementContext ctx) {
-        String endCheck = ctx.statementBlock().getText();
-        if (!endCheck.substring(endCheck.length() - 3).contains("end"))
-            throw new RuntimeException("Missing end to encapsulate the if statement");
+
 
         List<LCTParser.ConditionBlockContext> conditions =  ctx.conditionBlock();
 
@@ -185,6 +189,8 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
                     return left.asDouble() == 0 ? right : left;
                 }
                 return new Value(left.asDouble() / right.asDouble());
+            case LCTParser.Modulo:
+                return new Value(left.asDouble() % right.asDouble());
             default:
                 throw new RuntimeException("unknown operator: " + LCTParser.tokenNames[ctx.op.getType()]);
         }
@@ -216,11 +222,15 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
 
         switch (ctx.op.getType()) {
             case LCTParser.Equal:
-                if (left.isDouble() && right.isDouble())
-                    return new Value(!left.equals(right));
+                if (!left.isDouble() && !right.isDouble()){
+                    return new Value(left.asString().equals(right.asString()));
+                } else
+                    return new Value(Math.abs(left.asDouble() - right.asDouble()) < 0.00000000001);
             case LCTParser.NotEqual:
-                if (left.isDouble() && right.isDouble())
-                    return new Value(left.equals(right));
+                if (!left.isDouble() && !right.isDouble()){
+                    return new Value(!left.asString().equals(right.asString()));
+                } else
+                    return new Value(Math.abs(left.asDouble() - right.asDouble()) >= 0.00000000001);
             default:
                 throw new RuntimeException("unknown operator: " + LCTParser.tokenNames[ctx.op.getType()]);
         }
@@ -243,6 +253,10 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     //OUTPUT
     @Override public Value visitOutput(LCTParser.OutputContext ctx)
     {
+        if ((ctx.getText().contains("<missing '('>")) || (ctx.getText().contains("<missing ')'>"))) {
+            throw new RuntimeException("Missing ( ) around output expression");
+        }
+
         Value value = this.visit(ctx.expr());
         System.out.println(value);
         return value;
