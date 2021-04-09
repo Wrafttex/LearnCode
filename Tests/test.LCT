@@ -1,9 +1,7 @@
 var print = ""
 var i = 0
-
 var fizz = 3
 var buzz = 5
-
 var test1
 var test2
 
@@ -23,8 +21,7 @@ loop i from 0 to 50
         print = i
     end
 
-    output (print)
-
+    output(print
 end
 
 

@@ -184,9 +184,8 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
                 return new Value(left.asDouble() * right.asDouble());
             case LCTParser.Divide:
                 if (left.asDouble() == 0 || right.asDouble() == 0) {
-                    //throw new RuntimeException("Division with 0 is illegal");
-                    System.out.println("Division with 0 is illegal");
-                    return left.asDouble() == 0 ? right : left;
+                    throw new RuntimeException("Division with 0 is illegal");
+                    //return left.asDouble() == 0 ? right : left;
                 }
                 return new Value(left.asDouble() / right.asDouble());
             case LCTParser.Modulo:

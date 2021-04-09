@@ -17,8 +17,12 @@ public class LCTMain {
             ParseTree tree = parser.program();
             StatementVisitor visitor = new StatementVisitor();
             visitor.visit(tree);
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (Exception ex) {
+            if (ex instanceof RuntimeException) {
+                System.out.println(ex.getMessage());
+            } else if (ex instanceof IOException){
+                ex.printStackTrace();
+            }
         }
     }
 }
