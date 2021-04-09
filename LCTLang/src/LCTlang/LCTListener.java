@@ -68,16 +68,6 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitStatementBlock(LCTParser.StatementBlockContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LCTParser#block}.
-	 * @param ctx the parse tree
-	 */
-	void enterBlock(LCTParser.BlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#block}.
-	 * @param ctx the parse tree
-	 */
-	void exitBlock(LCTParser.BlockContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link LCTParser#forStatement}.
 	 * @param ctx the parse tree
 	 */

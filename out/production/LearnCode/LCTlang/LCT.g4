@@ -15,18 +15,13 @@ reassignment: ID ASSIGN expr;
 
 output: PRINT expr;
 
-statementBlock
- : '{' block '}'
- | statement
- ;
-
-block: statement*;
+statementBlock:  statement+ END;
 
 forStatement: FOR forCondition statementBlock;
 forCondition : iterator=expr  'from' startExpr=INT range='to' endExpr=INT ;
 
-ifStatement: IF conditionBlock (ELSE IF conditionBlock)* (ELSE statementBlock)?;
-conditionBlock: '('expr')' statementBlock;
+ifStatement: IF conditionBlock (ELSE IF conditionBlock)* (ELSE Then statementBlock)?;
+conditionBlock: '('expr')' Then statementBlock;
 
 expr
  : variables                                                        #variablesExpr
@@ -67,6 +62,8 @@ PRINT: 'output';
 VAR: 'var';
 IF : 'if';
 ELSE : 'else';
+END : 'end';
+Then: 'then';
 
 ID
  : [a-zA-Z_] [a-zA-Z_0-9]*

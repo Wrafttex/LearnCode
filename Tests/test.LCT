@@ -1,5 +1,12 @@
 var five = 5
+
 loop i from 0 to 5
-{
-    output five
-}
+    if (five > 3) then
+        output "test1"
+    end else then
+        output "test2"
+    end
+    five = five - 1
+end
+
+output "Im out of the loop"

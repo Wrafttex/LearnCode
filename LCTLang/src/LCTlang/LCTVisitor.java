@@ -47,12 +47,6 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatementBlock(LCTParser.StatementBlockContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LCTParser#block}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBlock(LCTParser.BlockContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link LCTParser#forStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
