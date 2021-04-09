@@ -10,7 +10,7 @@ import java.util.List;
 
 public class StatementVisitor extends LCTBaseVisitor<Value>
 {
-    private Map<String, Value> memory = new HashMap<String, Value>();
+    private final Map<String, Value> memory = new HashMap<String, Value>();
 
 /* Start of all Statements
 *  Start of all Statements
@@ -36,6 +36,10 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
 
     @Override public Value visitForStatement(LCTParser.ForStatementContext ctx)
     {
+        String endCheck = ctx.statementBlock().getText();
+        if (!endCheck.substring(endCheck.length() - 3).contains("end"))
+            throw new RuntimeException("Missing end to encapsulate the loop");
+
         int start = Integer.parseInt(ctx.forCondition().startExpr.getText());
         int end = Integer.parseInt(ctx.forCondition().endExpr.getText());
         int i;
@@ -48,6 +52,9 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     }
 
     @Override public Value visitIfStatement(LCTParser.IfStatementContext ctx) {
+        String endCheck = ctx.statementBlock().getText();
+        if (!endCheck.substring(endCheck.length() - 3).contains("end"))
+            throw new RuntimeException("Missing end to encapsulate the if statement");
 
         List<LCTParser.ConditionBlockContext> conditions =  ctx.conditionBlock();
 

@@ -91,7 +91,8 @@ returnStatement
     ;
 
 statementBlock
-    : statement+ End;
+    : statement+ End
+    ;
 
 forStatement
     : For forCondition statementBlock
@@ -102,11 +103,11 @@ forCondition
     ;
 
 ifStatement
-    : If conditionBlock (Else If conditionBlock)* (Else statementBlock)?
+    : If conditionBlock (Else If conditionBlock)* (Else Then statementBlock)?
     ;
 
 conditionBlock
-    : '('expr')' statementBlock
+    : '('expr')' Then statementBlock
     ;
 
 // Tokens
@@ -130,6 +131,7 @@ Return: 'return';
 Var: 'var';
 Print: 'output';
 End: 'end';
+Then: 'then';
 
 LeftParen: '(';
 RightParen: ')';

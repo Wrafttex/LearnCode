@@ -1,9 +1,13 @@
-var five = 5 == 5
+var five = 5
 
 loop i from 0 to 5
-    output five
+    if ( five > 3 ) then
+        five = five--
+        output five
+    end else then
+        output five
+    end
 end
-
 output "Im out of the loop"
 
 
