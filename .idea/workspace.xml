@@ -4,9 +4,8 @@
     <list default="true" id="d49989a8-b4cf-4236-b047-c18d29533b5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/Main/LCTMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/Main/LCTMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/statements/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/statements/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/test.LCT" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test.LCT" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/Main/LCTMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/Main/LCTMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/statements/StatementVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/statements/StatementVisitor.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +67,7 @@
     <configuration name="LCTMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LCTlang.Main.LCTMain" />
       <module name="LearnCode" />
+      <option name="PROGRAM_PARAMETERS" value="$FilePrompt$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="LCTlang.Main.*" />

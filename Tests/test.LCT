@@ -21,7 +21,7 @@ loop i from 0 to 50
         print = i
     end
 
-    output(print
+    output(print)
 end
 
 
