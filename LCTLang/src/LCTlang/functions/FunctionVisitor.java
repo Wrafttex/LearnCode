@@ -2,21 +2,23 @@ package LCTlang.functions;
 
 import LCTlang.LCTBaseVisitor;
 import LCTlang.LCTParser;
+import LCTlang.Value;
+import com.sun.source.tree.Scope;
+import org.antlr.v4.runtime.tree.ParseTreeProperty;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class FunctionVisitor extends LCTBaseVisitor<Object> {
-
-    @Override public Object visitStatement(LCTParser.StatementContext ctx) { return visitChildren(ctx); }
-
-    @Override public Object visitStatementList(LCTParser.StatementListContext ctx) { return visitChildren(ctx); }
+    private final Map<String, Value> memory = new HashMap<String, Value>();
 
     @Override public Object visitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx) {
-        String identifier = ctx.identifier().getText();
+        String funcName = ctx.getChild(2).getText();
+
         return visitChildren(ctx);
     }
 
     @Override public Object visitFunctionBody(LCTParser.FunctionBodyContext ctx) { return visitChildren(ctx); }
-
-    @Override public Object visitFunctionBlock(LCTParser.FunctionBlockContext ctx) { return visitChildren(ctx); }
 
     @Override public Object visitIdentifier(LCTParser.IdentifierContext ctx) { return visitChildren(ctx); }
 
