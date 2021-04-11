@@ -11,6 +11,7 @@ import java.util.List;
 public class StatementVisitor extends LCTBaseVisitor<Value>
 {
     private final Map<String, Value> memory = new HashMap<String, Value>();
+    private final Map<String, LCTParser.StatementBlockContext> functions = new HashMap<String, LCTParser.StatementBlockContext>();
 
 /* Start of all Statements
 *  Start of all Statements
@@ -81,6 +82,22 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             this.visit(ctx.statementBlock());
         }
 
+        return Value.VOID;
+    }
+
+    @Override public Value visitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx) {
+        List<LCTParser.ExprContext> arguments = null;
+        String id = ctx.identifier().getText();
+        LCTParser.StatementBlockContext statements = ctx.statementBlock();
+
+        functions.put(id, statements);
+        return Value.VOID;
+    }
+
+    @Override public Value visitFunctionCall(LCTParser.FunctionCallContext ctx) {
+        String id = ctx.identifier().getText();
+
+        this.visit(functions.get(id));
         return Value.VOID;
     }
 

@@ -5,6 +5,10 @@ var buzz = 5
 var test1
 var test2
 
+function testFunc ()
+    output ("Im a Function!")
+end
+
 loop i from 0 to 50
     i = i++
     print = ""
@@ -24,5 +28,6 @@ loop i from 0 to 50
     output(print)
 end
 
+testFunc()
 
 
