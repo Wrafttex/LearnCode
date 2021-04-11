@@ -12,6 +12,7 @@ statement
     | ifStatement
     | forStatement
     | functionDeclaration
+    | functionCall
     ;
 
 assignStatement
@@ -52,6 +53,10 @@ variable
 
 functionDeclaration
     : Function identifier '(' arguments? ')' statementBlock
+    ;
+
+functionCall
+    : identifier '(' arguments? ')'
     ;
 
 identifier

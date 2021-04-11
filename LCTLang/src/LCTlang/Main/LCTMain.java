@@ -3,13 +3,19 @@ package LCTlang.Main;
 import LCTlang.statements.StatementVisitor;
 import LCTlang.LCTLexer;
 import LCTlang.LCTParser;
+<<<<<<< Updated upstream
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
+=======
+import org.antlr.runtime.ANTLRFileStream;
+import org.antlr.v4.runtime.CharStream;
+>>>>>>> Stashed changes
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import java.io.IOException;
 
 public class LCTMain {
+<<<<<<< Updated upstream
     public static void main(String[] args) {
 
         if (args.length != 1) {
@@ -19,6 +25,13 @@ public class LCTMain {
             LCTParser parser = getParser(fileName);
 
             // tell ANTLR to build a parse tree
+=======
+    public static void main(String[] args)
+    {
+        try{
+            LCTLexer lexer = new LCTLexer((CharStream) new ANTLRFileStream("Tests/test.LCT"));
+            LCTParser parser = new LCTParser(new CommonTokenStream(lexer));
+>>>>>>> Stashed changes
             ParseTree tree = parser.program();
 
 

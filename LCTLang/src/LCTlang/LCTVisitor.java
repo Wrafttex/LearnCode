@@ -166,6 +166,12 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LCTParser#functionCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCall(LCTParser.FunctionCallContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LCTParser#identifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

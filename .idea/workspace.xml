@@ -3,8 +3,35 @@
   <component name="ChangeListManager">
     <list default="true" id="d49989a8-b4cf-4236-b047-c18d29533b5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.g4" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTBaseListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTVisitor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/Main/LCTMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/Main/LCTMain.java" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/Main/LCTMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/Main/LCTMain.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/functions/FunctionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/functions/FunctionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/statements/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/statements/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/test.LCT" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test.LCT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCT.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCT.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCTBaseListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCTBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCTLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCTLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCTLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCTListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCTParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/LCTlang/LCTVisitor.java" beforeDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/statements/StatementVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/statements/StatementVisitor.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

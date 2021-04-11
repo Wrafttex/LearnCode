@@ -272,6 +272,16 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LCTParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCall(LCTParser.FunctionCallContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCall(LCTParser.FunctionCallContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LCTParser#identifier}.
 	 * @param ctx the parse tree
 	 */

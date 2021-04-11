@@ -1,8 +1,8 @@
 package LCTlang.statements;
 
+import LCTlang.Value;
 import LCTlang.LCTBaseVisitor;
 import LCTlang.LCTParser;
-import LCTlang.Value;
 
 import java.util.HashMap;
 import java.util.Map;
