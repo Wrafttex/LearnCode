@@ -5,8 +5,10 @@ var buzz = 5
 var test1
 var test2
 
-function testFunc ()
-    output ("Im a Function!")
+function testFunc (x, y, z)
+    output ("X: " + x)
+    output ("Y: " + y)
+    output ("Z: " + z)
 end
 
 loop i from 0 to 50
@@ -28,6 +30,6 @@ loop i from 0 to 50
     output(print)
 end
 
-testFunc()
+testFunc(5, 1, 2)
 
 

@@ -1,5 +1,6 @@
 package LCTlang.statements;
 
+import LCTlang.LCTFunctionCall;
 import LCTlang.Value;
 import LCTlang.LCTBaseVisitor;
 import LCTlang.LCTParser;
@@ -7,11 +8,12 @@ import LCTlang.LCTParser;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
+import java.util.ArrayList;
 
 public class StatementVisitor extends LCTBaseVisitor<Value>
 {
     private final Map<String, Value> memory = new HashMap<String, Value>();
-    private final Map<String, LCTParser.StatementBlockContext> functions = new HashMap<String, LCTParser.StatementBlockContext>();
+    private final Map<String, LCTFunctionCall> functions = new HashMap<String, LCTFunctionCall>();
 
 /* Start of all Statements
 *  Start of all Statements
@@ -86,18 +88,36 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     }
 
     @Override public Value visitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx) {
-        List<LCTParser.ExprContext> arguments = null;
-        String id = ctx.identifier().getText();
-        LCTParser.StatementBlockContext statements = ctx.statementBlock();
 
-        functions.put(id, statements);
+        String id = ctx.identifier().getText();
+
+        String[] arguments = ctx.arguments().getText().split(",");
+        for (String arg: arguments) {
+            Value value = Value.VOID;
+            memory.put(arg, value);
+        }
+
+        LCTFunctionCall funcCall = new LCTFunctionCall(ctx.statementBlock(), arguments);
+        functions.put(id, funcCall);
         return Value.VOID;
     }
 
     @Override public Value visitFunctionCall(LCTParser.FunctionCallContext ctx) {
+        ArrayList<Value> values = new ArrayList<Value>();
+        int i = 0;
         String id = ctx.identifier().getText();
+        LCTFunctionCall funcCall = functions.get(id);
 
-        this.visit(functions.get(id));
+        for (LCTParser.ExprContext expr : ctx.arguments().expr()){
+            values.add(this.visit(expr));
+        }
+
+        for (String arg: funcCall.getArguments()) {
+            memory.replace(arg, values.get(i));
+            i++;
+        }
+
+        this.visit(funcCall.getStatements());
         return Value.VOID;
     }
 

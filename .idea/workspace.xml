@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d49989a8-b4cf-4236-b047-c18d29533b5b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/Main/LCTMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/Main/LCTMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/statements/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/statements/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LearnCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LearnCode.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/test.LCT" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test.LCT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/statements/StatementVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LearnCode/LCTlang/statements/StatementVisitor.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
