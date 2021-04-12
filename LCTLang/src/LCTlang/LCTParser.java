@@ -1634,15 +1634,14 @@ public class LCTParser extends Parser {
 
 	public static class ForConditionContext extends ParserRuleContext {
 		public ExprContext iterator;
-		public Token startExpr;
+		public ExprContext startExpr;
 		public Token range;
-		public Token endExpr;
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
+		public ExprContext endExpr;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
 		}
-		public List<TerminalNode> Int() { return getTokens(LCTParser.Int); }
-		public TerminalNode Int(int i) {
-			return getToken(LCTParser.Int, i);
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
 		}
 		public ForConditionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1674,11 +1673,11 @@ public class LCTParser extends Parser {
 			setState(161);
 			match(T__3);
 			setState(162);
-			((ForConditionContext)_localctx).startExpr = match(Int);
+			((ForConditionContext)_localctx).startExpr = expr(0);
 			setState(163);
 			((ForConditionContext)_localctx).range = match(T__4);
 			setState(164);
-			((ForConditionContext)_localctx).endExpr = match(Int);
+			((ForConditionContext)_localctx).endExpr = expr(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1927,15 +1926,14 @@ public class LCTParser extends Parser {
 		"\3\2\2\2\u009a\u009b\3\2\2\2\u009b\u009c\3\2\2\2\u009c\u009d\7\27\2\2"+
 		"\u009d\35\3\2\2\2\u009e\u009f\7\f\2\2\u009f\u00a0\5 \21\2\u00a0\u00a1"+
 		"\5\34\17\2\u00a1\37\3\2\2\2\u00a2\u00a3\5\f\7\2\u00a3\u00a4\7\6\2\2\u00a4"+
-		"\u00a5\7\61\2\2\u00a5\u00a6\7\7\2\2\u00a6\u00a7\7\61\2\2\u00a7!\3\2\2"+
-		"\2\u00a8\u00a9\7\r\2\2\u00a9\u00af\5$\23\2\u00aa\u00ab\7\16\2\2\u00ab"+
-		"\u00ac\7\r\2\2\u00ac\u00ae\5$\23\2\u00ad\u00aa\3\2\2\2\u00ae\u00b1\3\2"+
-		"\2\2\u00af\u00ad\3\2\2\2\u00af\u00b0\3\2\2\2\u00b0\u00b5\3\2\2\2\u00b1"+
-		"\u00af\3\2\2\2\u00b2\u00b3\7\16\2\2\u00b3\u00b4\7\30\2\2\u00b4\u00b6\5"+
-		"\34\17\2\u00b5\u00b2\3\2\2\2\u00b5\u00b6\3\2\2\2\u00b6#\3\2\2\2\u00b7"+
-		"\u00b8\7\31\2\2\u00b8\u00b9\5\f\7\2\u00b9\u00ba\7\32\2\2\u00ba\u00bb\7"+
-		"\30\2\2\u00bb\u00bc\5\34\17\2\u00bc%\3\2\2\2\20)\64<Ojlsy\u0081\u0087"+
-		"\u008e\u009a\u00af\u00b5";
+		"\u00a5\5\f\7\2\u00a5\u00a6\7\7\2\2\u00a6\u00a7\5\f\7\2\u00a7!\3\2\2\2"+
+		"\u00a8\u00a9\7\r\2\2\u00a9\u00af\5$\23\2\u00aa\u00ab\7\16\2\2\u00ab\u00ac"+
+		"\7\r\2\2\u00ac\u00ae\5$\23\2\u00ad\u00aa\3\2\2\2\u00ae\u00b1\3\2\2\2\u00af"+
+		"\u00ad\3\2\2\2\u00af\u00b0\3\2\2\2\u00b0\u00b5\3\2\2\2\u00b1\u00af\3\2"+
+		"\2\2\u00b2\u00b3\7\16\2\2\u00b3\u00b4\7\30\2\2\u00b4\u00b6\5\34\17\2\u00b5"+
+		"\u00b2\3\2\2\2\u00b5\u00b6\3\2\2\2\u00b6#\3\2\2\2\u00b7\u00b8\7\31\2\2"+
+		"\u00b8\u00b9\5\f\7\2\u00b9\u00ba\7\32\2\2\u00ba\u00bb\7\30\2\2\u00bb\u00bc"+
+		"\5\34\17\2\u00bc%\3\2\2\2\20)\64<Ojlsy\u0081\u0087\u008e\u009a\u00af\u00b5";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

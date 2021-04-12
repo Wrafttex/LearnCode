@@ -21,7 +21,6 @@ public class LCTMain {
             // tell ANTLR to build a parse tree
             ParseTree tree = parser.program();
 
-
             // Create a visitor for converting the parse tree into Program/Expression object
             StatementVisitor Visitor = new StatementVisitor();
             Visitor.visit(tree);

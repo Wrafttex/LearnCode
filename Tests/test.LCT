@@ -1,35 +1,37 @@
-var print = ""
-var i = 0
-var fizz = 3
-var buzz = 5
-var test1
-var test2
+function FizzBuzz(startLoop, endLoop)
+    var print = ""
+    var i = 0
+    var fizz = 3
+    var buzz = 5
 
-function testFunc (x, y, z)
-    output ("X: " + x)
-    output ("Y: " + y)
-    output ("Z: " + z)
+    loop i from startLoop to endLoop
+        i = i++
+        print = ""
+
+        if ( i % fizz == 0 ) then
+            print = print + "Fizz"
+        end
+
+        if ( i % buzz == 0 ) then
+            print = print + "Buzz"
+        end
+
+        if ( print == "") then
+            print = i
+        end
+
+        output(print)
+    end
 end
 
-loop i from 0 to 50
-    i = i++
-    print = ""
-
-    if ( i % fizz == 0 ) then
-        print = print + "Fizz"
-    end
-
-    if ( i % buzz == 0 ) then
-        print = print + "Buzz"
-    end
-
-    if ( print == "") then
-        print = i
-    end
-
-    output(print)
+function main()
+    output("------ Start! ------")
+    FizzBuzz(0, 25)
+    output("------ Stop! ------")
 end
 
-testFunc(5, 1, 2)
+main()
+
+
 
 

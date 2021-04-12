@@ -86,7 +86,7 @@ forStatement
     ;
 
 forCondition
-    : iterator=expr  'from' startExpr=Int range='to' endExpr=Int
+    : iterator=expr  'from' startExpr=expr range='to' endExpr=expr
     ;
 
 ifStatement

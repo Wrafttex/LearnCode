@@ -49,11 +49,11 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         if (!endCheck.substring(endCheck.length() - 3).contains("end"))
             throw new RuntimeException("Missing end to encapsulate the loop");
 
-        int start = Integer.parseInt(ctx.forCondition().startExpr.getText());
-        int end = Integer.parseInt(ctx.forCondition().endExpr.getText());
-        int i;
+        Value start = this.visit(ctx.forCondition().startExpr);
+        Value end = this.visit(ctx.forCondition().endExpr);
+        double i;
 
-        for (i = start; i < end; i++){
+        for (i = start.asDouble() ; i < end.asDouble(); i++){
             this.visit(ctx.statementBlock());
         }
 
@@ -88,13 +88,15 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     }
 
     @Override public Value visitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx) {
-
         String id = ctx.identifier().getText();
+        String[] arguments = null;
 
-        String[] arguments = ctx.arguments().getText().split(",");
-        for (String arg: arguments) {
-            Value value = Value.VOID;
-            memory.put(arg, value);
+        if (ctx.arguments() != null) {
+            arguments = ctx.arguments().getText().split(",");
+            for (String arg: arguments) {
+                Value value = Value.VOID;
+                memory.put(arg, value);
+            }
         }
 
         LCTFunctionCall funcCall = new LCTFunctionCall(ctx.statementBlock(), arguments);
@@ -108,13 +110,16 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         String id = ctx.identifier().getText();
         LCTFunctionCall funcCall = functions.get(id);
 
-        for (LCTParser.ExprContext expr : ctx.arguments().expr()){
-            values.add(this.visit(expr));
-        }
 
-        for (String arg: funcCall.getArguments()) {
-            memory.replace(arg, values.get(i));
-            i++;
+        if (funcCall.getArguments() != null) {
+            for (LCTParser.ExprContext expr : ctx.arguments().expr()){
+                values.add(this.visit(expr));
+            }
+
+            for (String arg: funcCall.getArguments()) {
+                memory.replace(arg, values.get(i));
+                i++;
+            }
         }
 
         this.visit(funcCall.getStatements());

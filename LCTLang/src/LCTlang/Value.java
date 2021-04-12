@@ -18,6 +18,7 @@ public class Value {
         return (Double)value;
     }
 
+
     public String asString() {
         return String.valueOf(value);
     }
