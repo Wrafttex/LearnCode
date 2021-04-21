@@ -1,6 +1,6 @@
 package LCTlang;
 
-public class Value {
+public class Value extends Throwable {
 
     public static Value VOID = new Value(new Object());
 
@@ -17,7 +17,6 @@ public class Value {
     public Double asDouble() {
         return (Double)value;
     }
-
 
     public String asString() {
         return String.valueOf(value);

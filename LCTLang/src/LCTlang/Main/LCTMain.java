@@ -11,36 +11,37 @@ import java.io.IOException;
 
 public class LCTMain {
     public static void main(String[] args) {
+        try
+        {
+            if (args.length != 1) {
+                System.err.print("Usage: file name");
+            } else {
+                String fileName = args[0];
+                LCTParser parser = getParser(fileName);
 
-        if (args.length != 1) {
-            System.err.print("Usage: file name");
-        } else {
-            String fileName = args[0];
-            LCTParser parser = getParser(fileName);
+                // tell ANTLR to build a parse tree
+                ParseTree tree = parser.program();
 
-            // tell ANTLR to build a parse tree
-            ParseTree tree = parser.program();
-
-            // Create a visitor for converting the parse tree into Program/Expression object
-            StatementVisitor Visitor = new StatementVisitor();
-            Visitor.visit(tree);
+                // Create a visitor for converting the parse tree into Program/Expression object
+                StatementVisitor Visitor = new StatementVisitor();
+                Visitor.visit(tree);
+            }
+        }
+        catch (RuntimeException ex){
+            System.out.println(ex.getMessage());
         }
     }
 
-
-    private static LCTParser getParser(String filename){
+    private static LCTParser getParser(String filename) {
         LCTParser parser = null;
         try {
             CharStream input = CharStreams.fromFileName(filename);
             LCTLexer lexer = new LCTLexer(input);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             parser = new LCTParser(tokens);
-        } catch (Exception ex) {
-            if (ex instanceof RuntimeException) {
-                System.out.println(ex.getMessage());
-            } else if (ex instanceof IOException) {
-                ex.printStackTrace();
-            }
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
         return parser;
     }

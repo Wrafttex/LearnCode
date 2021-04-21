@@ -1,14 +1,13 @@
 package LCTlang.statements;
 
-import LCTlang.LCTFunctionCall;
-import LCTlang.Value;
-import LCTlang.LCTBaseVisitor;
-import LCTlang.LCTParser;
+import LCTlang.*;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
+import java.beans.Expression;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class StatementVisitor extends LCTBaseVisitor<Value>
 {
@@ -16,10 +15,9 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     private final Map<String, LCTFunctionCall> functions = new HashMap<String, LCTFunctionCall>();
 
 /* Start of all Statements
-*  Start of all Statements
+*  Start of all Statementsd
 *  Start of all Statements*/
-    @Override public Value visitAssignStatement(LCTParser.AssignStatementContext ctx)
-    {
+    @Override public Value visitAssignStatement(LCTParser.AssignStatementContext ctx) {
         if (ctx.getText().contains("=")) {
             String id = ctx.Identifier().getText();
             Value value = this.visit(ctx.expr());
@@ -31,8 +29,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     }
     }
 
-    @Override public Value visitReassignment(LCTParser.ReassignmentContext ctx)
-    {
+    @Override public Value visitReassignment(LCTParser.ReassignmentContext ctx) {
         String id = ctx.Identifier().getText();
 
         if (memory.containsKey(id)) {
@@ -43,17 +40,27 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             throw new RuntimeException("no such variable: " + id);
     }
 
-    @Override public Value visitForStatement(LCTParser.ForStatementContext ctx)
-    {
+    @Override public Value visitForStatement(LCTParser.ForStatementContext ctx) {
         String endCheck = ctx.statementBlock().getText();
         if (!endCheck.substring(endCheck.length() - 3).contains("end"))
             throw new RuntimeException("Missing end to encapsulate the loop");
 
-        Value start = this.visit(ctx.forCondition().startExpr);
-        Value end = this.visit(ctx.forCondition().endExpr);
+        Value loopCount = this.visit(ctx.forCondition().loopCount);
+      /*  Value firstVal = this.visit(ctx.forCondition().startExpr)
+        Value secondVal = this.visit(ctx.forCondition().endExpr);
         double i;
 
-        for (i = start.asDouble() ; i < end.asDouble(); i++){
+        if (firstVal.asDouble() < secondVal.asDouble()) {
+            for (i = firstVal.asDouble() ; i < secondVal.asDouble(); i++){
+                this.visit(ctx.statementBlock());
+            }
+        } else if (firstVal.asDouble() > secondVal.asDouble()) {
+            for (i = firstVal.asDouble() ; i < secondVal.asDouble(); i--){
+                this.visit(ctx.statementBlock());
+            }
+        }*/
+
+        for (int i = 0; i < loopCount.asDouble(); i++) {
             this.visit(ctx.statementBlock());
         }
 
@@ -61,10 +68,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     }
 
     @Override public Value visitIfStatement(LCTParser.IfStatementContext ctx) {
-
-
         List<LCTParser.ConditionBlockContext> conditions =  ctx.conditionBlock();
-
         boolean evaluatedBlock = false;
 
         for(LCTParser.ConditionBlockContext condition : conditions) {
@@ -110,8 +114,10 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         String id = ctx.identifier().getText();
         LCTFunctionCall funcCall = functions.get(id);
 
-
         if (funcCall.getArguments() != null) {
+            if (ctx.arguments() == null)
+                throw new RuntimeException("Missing arguments in function call for: " + id);
+
             for (LCTParser.ExprContext expr : ctx.arguments().expr()){
                 values.add(this.visit(expr));
             }
@@ -122,14 +128,26 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             }
         }
 
-        this.visit(funcCall.getStatements());
+        try {
+            this.visit(funcCall.getStatements());
+        } catch (LCTFunctionReturnException res) {
+            return new Value(res.getCause());
+        }
         return Value.VOID;
+    }
+
+    @Override public Value visitReturnStatement(LCTParser.ReturnStatementContext ctx) {
+        if ((ctx.getText().contains("<missing '('>")) || (ctx.getText().contains("<missing ')'>"))) {
+            throw new RuntimeException("Missing ( ) around return expression");
+        }
+
+        throw new LCTFunctionReturnException("Return statement found", this.visit(ctx.expr()));
     }
 
 
      /* Start of all Variables
      *  Start of all Variables
-     *  Start of all Variables*/
+     *  Start of all Variables */
 
      @Override public Value visitVariableExpr(LCTParser.VariableExprContext ctx) {
          Value value = this.visit(ctx.variable());
@@ -169,7 +187,6 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         Value expression = this.visit(ctx.expr());
         int i = 1;
         return new Value(expression.asDouble() + i);
-
     }
 
     @Override public Value visitPostDecrementExpr(LCTParser.PostDecrementExprContext ctx) {
@@ -195,12 +212,10 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
         return new Value(Math.pow(left.asDouble(), right.asDouble()));
-
     }
 
 
-    @Override public Value visitAdditiveExpr(LCTParser.AdditiveExprContext ctx)
-    {
+    @Override public Value visitAdditiveExpr(LCTParser.AdditiveExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
@@ -216,8 +231,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         }
     }
 
-    @Override public Value visitMultiplicativeExpr(LCTParser.MultiplicativeExprContext ctx)
-    {
+    @Override public Value visitMultiplicativeExpr(LCTParser.MultiplicativeExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
@@ -237,8 +251,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         }
     }
 
-    @Override public Value visitRelationalExpr(LCTParser.RelationalExprContext ctx)
-    {
+    @Override public Value visitRelationalExpr(LCTParser.RelationalExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
@@ -256,8 +269,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         }
     }
 
-    @Override public Value visitEqualExpr(LCTParser.EqualExprContext ctx)
-    {
+    @Override public Value visitEqualExpr(LCTParser.EqualExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
@@ -277,23 +289,20 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         }
     }
 
-    @Override public Value visitAndExpr(LCTParser.AndExprContext ctx)
-    {
+    @Override public Value visitAndExpr(LCTParser.AndExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
         return new Value(left.asBoolean() && right.asBoolean());
     }
 
-    @Override public Value visitOrExpr(LCTParser.OrExprContext ctx)
-    {
+    @Override public Value visitOrExpr(LCTParser.OrExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
         return new Value(left.asBoolean() || right.asBoolean());
     }
 
     //OUTPUT
-    @Override public Value visitOutput(LCTParser.OutputContext ctx)
-    {
+    @Override public Value visitOutput(LCTParser.OutputContext ctx) {
         if ((ctx.getText().contains("<missing '('>")) || (ctx.getText().contains("<missing ')'>"))) {
             throw new RuntimeException("Missing ( ) around output expression");
         }
@@ -302,5 +311,4 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         System.out.println(value);
         return value;
     }
-
 }

@@ -1,10 +1,21 @@
-function FizzBuzz(startLoop, endLoop)
+function nameReturn()
+    var name = "Tim"
+    return(name)
+end
+
+function testFunc(x)
+    var msg
+    msg = "Hello, " + x + " I'm the compiler"
+    return(msg)
+end
+
+function FizzBuzz(loopAmount)
     var print = ""
     var i = 0
     var fizz = 3
     var buzz = 5
 
-    loop i from startLoop to endLoop
+    loop loopAmount times
         i = i++
         print = ""
 
@@ -25,9 +36,7 @@ function FizzBuzz(startLoop, endLoop)
 end
 
 function main()
-    output("------ Start! ------")
-    FizzBuzz(0, 25)
-    output("------ Stop! ------")
+    output(testFunc(nameReturn()))
 end
 
 main()

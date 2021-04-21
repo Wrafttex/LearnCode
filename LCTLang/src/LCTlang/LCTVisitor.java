@@ -48,6 +48,13 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAndExpr(LCTParser.AndExprContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code FunctionReturn}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionReturn(LCTParser.FunctionReturnContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code EqualExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree

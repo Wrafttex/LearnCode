@@ -8,7 +8,6 @@ statement
     : assignStatement
     | reassignment
     | output
-    | returnStatement
     | ifStatement
     | forStatement
     | functionDeclaration
@@ -42,6 +41,7 @@ expr
     | expr op=(Equal|NotEqual) expr                          # EqualExpr
     | expr AND expr                                          # AndExpr
     | expr OR expr                                           # OrExpr
+    | functionCall                                           # FunctionReturn
     ;
 
 variable
@@ -74,11 +74,11 @@ functionName
     ;
 
 returnStatement
-    : Return expr Semicolon
+    : Return LeftParen expr RightParen
     ;
 
 statementBlock
-    : statement+ End
+    : statement+ returnStatement* End
     ;
 
 forStatement
@@ -86,8 +86,12 @@ forStatement
     ;
 
 forCondition
-    : iterator=expr  'from' startExpr=expr range='to' endExpr=expr
+    : loopCount=expr 'times'
     ;
+/*
+forCondition
+    : 'from' startExpr=expr range='to' endExpr=expr
+    ;*/
 
 ifStatement
     : If conditionBlock (Else If conditionBlock)* (Else Then statementBlock)?

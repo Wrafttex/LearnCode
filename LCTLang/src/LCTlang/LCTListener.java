@@ -70,6 +70,18 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitAndExpr(LCTParser.AndExprContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code FunctionReturn}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionReturn(LCTParser.FunctionReturnContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FunctionReturn}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionReturn(LCTParser.FunctionReturnContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code EqualExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
