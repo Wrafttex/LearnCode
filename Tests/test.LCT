@@ -28,6 +28,10 @@ function main()
     output("------ Start! ------")
     FizzBuzz(0, 25)
     output("------ Stop! ------")
+
+    solve("x+5+3==x*5-3,x")
+     log10("5.5")
+
 end
 
 main()

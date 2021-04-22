@@ -4,6 +4,10 @@ import LCTlang.LCTFunctionCall;
 import LCTlang.Value;
 import LCTlang.LCTBaseVisitor;
 import LCTlang.LCTParser;
+import org.matheclipse.core.eval.ExprEvaluator;
+import org.matheclipse.core.interfaces.IExpr;
+import org.matheclipse.core.parser.ExprParser;
+import org.matheclipse.core.expression.Symbol;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -302,5 +306,49 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         System.out.println(value);
         return value;
     }
+
+    //Solve
+    //TODO checker for correct parameter
+    //TODO talk about if our solve should send which letter should be solved or backend should find out by it self
+   @Override public Value visitSolve(LCTParser.SolveContext ctx){
+       //System.out.println(ctx.getText());
+
+       if ((ctx.getText().contains("<missing '('>")) || (ctx.getText().contains("<missing ')'>"))) {
+           throw new RuntimeException("Missing ( ) around output expression");
+       }
+
+       Value value = this.visit(ctx.expr());
+       // System.out.println(value);
+       String input = value.toString();
+       ExprEvaluator util = new ExprEvaluator();
+       IExpr Result =  util.eval("N(Solve(" +input + "))");
+       System.out.println("Result - " + Result);
+        return value;
+   }
+
+    @Override public Value visitLog10(LCTParser.Log10Context ctx) {
+
+        if ((ctx.getText().contains("<missing '('>")) || (ctx.getText().contains("<missing ')'>"))) {
+            throw new RuntimeException("Missing ( ) around output expression");
+        }
+
+        //System.out.println(ctx.getText());
+        Value value = this.visit(ctx.expr());
+        System.out.println(value);
+        System.out.println(value.isDouble());
+        String checkForNumber = value.toString();
+
+        if (!checkForNumber.matches("^\\d*(\\.\\d+)?$")){
+            throw new RuntimeException("Log10 expression only number");
+
+        }
+        ExprEvaluator util = new ExprEvaluator();
+        IExpr Result = util.eval("N(log10(" + value +"))");
+
+
+        System.out.println(Result);
+
+
+        return value; }
 
 }

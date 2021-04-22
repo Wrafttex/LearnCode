@@ -1,4 +1,4 @@
-// Generated from E:/Projects/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
+// Generated from C:/Users/Nobody/Documents/aau/4/project/LearnCode-branch3/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
 package LCTlang;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -35,11 +35,23 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitReassignment(LCTParser.ReassignmentContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LCTParser#solve}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSolve(LCTParser.SolveContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LCTParser#output}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitOutput(LCTParser.OutputContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#log10}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLog10(LCTParser.Log10Context ctx);
 	/**
 	 * Visit a parse tree produced by the {@code AndExpr}
 	 * labeled alternative in {@link LCTParser#expr}.

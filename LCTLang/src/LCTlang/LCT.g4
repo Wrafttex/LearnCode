@@ -13,6 +13,8 @@ statement
     | forStatement
     | functionDeclaration
     | functionCall
+    | solve
+    | log10
     ;
 
 assignStatement
@@ -24,8 +26,16 @@ reassignment
     : Identifier '=' expr
     ;
 
+solve
+    : Solve LeftParen expr RightParen
+    ;
+
 output
     : Print LeftParen expr RightParen
+    ;
+
+log10
+    : Log10 LeftParen expr RightParen
     ;
 
 expr
@@ -116,7 +126,10 @@ True: 'true';
 False: 'false';
 Return: 'return';
 Var: 'var';
+
+Log10: 'log10';
 Print: 'output';
+Solve: 'solve';
 End: 'end';
 Then: 'then';
 

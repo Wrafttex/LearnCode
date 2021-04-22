@@ -1,4 +1,4 @@
-// Generated from E:/Projects/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
+// Generated from C:/Users/Nobody/Documents/aau/4/project/LearnCode-branch3/LearnCode/LCTLang/src/LCTlang\LCT.g4 by ANTLR 4.9.1
 package LCTlang;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -48,6 +48,16 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitReassignment(LCTParser.ReassignmentContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LCTParser#solve}.
+	 * @param ctx the parse tree
+	 */
+	void enterSolve(LCTParser.SolveContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#solve}.
+	 * @param ctx the parse tree
+	 */
+	void exitSolve(LCTParser.SolveContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LCTParser#output}.
 	 * @param ctx the parse tree
 	 */
@@ -57,6 +67,16 @@ public interface LCTListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitOutput(LCTParser.OutputContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#log10}.
+	 * @param ctx the parse tree
+	 */
+	void enterLog10(LCTParser.Log10Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#log10}.
+	 * @param ctx the parse tree
+	 */
+	void exitLog10(LCTParser.Log10Context ctx);
 	/**
 	 * Enter a parse tree produced by the {@code AndExpr}
 	 * labeled alternative in {@link LCTParser#expr}.

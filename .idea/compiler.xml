@@ -17,7 +17,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="matheclipse-core" options="-endorseddirs E:\symja_android_library-master\symja_android_library\matheclipse-core\target/endorsed" />
+      <module name="matheclipse-core" options="-endorseddirs C:\Users\Nobody\Documents\aau\4\project\symja_android_library-version_2021-02-20\symja_android_library\matheclipse-core\target/endorsed" />
     </option>
   </component>
 </project>
