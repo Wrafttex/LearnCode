@@ -331,11 +331,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         if ((ctx.getText().contains("<missing '('>")) || (ctx.getText().contains("<missing ')'>"))) {
             throw new RuntimeException("Missing ( ) around output expression");
         }
-
-        //System.out.println(ctx.getText());
         Value value = this.visit(ctx.expr());
-        System.out.println(value);
-        System.out.println(value.isDouble());
         String checkForNumber = value.toString();
 
         if (!checkForNumber.matches("^\\d*(\\.\\d+)?$")){

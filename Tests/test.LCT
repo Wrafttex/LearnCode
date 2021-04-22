@@ -28,9 +28,10 @@ function main()
     output("------ Start! ------")
     FizzBuzz(0, 25)
     output("------ Stop! ------")
-
+    var a = "s"
+     log10("100")
     solve("x+5+3==x*5-3,x")
-     log10("5.5")
+
 
 end
 
