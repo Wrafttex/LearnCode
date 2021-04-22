@@ -70,7 +70,7 @@ arguments
 
 //TODO Implement reserved functions
 functionName
-    : 'test'
+    : 'intersection'
     ;
 
 returnStatement

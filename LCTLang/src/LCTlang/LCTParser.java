@@ -43,7 +43,7 @@ public class LCTParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'++'", "'--'", "'test'", "'times'", null, null, "'function'", 
+			null, "'++'", "'--'", "'intersection'", "'times'", null, null, "'function'", 
 			"'break'", "'loop'", "'if'", "'else'", "'sqrt'", "'OR'", "'AND'", "'true'", 
 			"'false'", "'return'", "'var'", "'output'", "'end'", "'then'", "'('", 
 			"')'", "'['", "']'", "'{'", "'}'", "':'", "';'", "','", "'+'", "'-'", 
@@ -1442,17 +1442,25 @@ public class LCTParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionName; }
+	 
+		public FunctionNameContext() { }
+		public void copyFrom(FunctionNameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class IntersectionFuncContext extends FunctionNameContext {
+		public IntersectionFuncContext(FunctionNameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LCTListener ) ((LCTListener)listener).enterFunctionName(this);
+			if ( listener instanceof LCTListener ) ((LCTListener)listener).enterIntersectionFunc(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LCTListener ) ((LCTListener)listener).exitFunctionName(this);
+			if ( listener instanceof LCTListener ) ((LCTListener)listener).exitIntersectionFunc(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LCTVisitor ) return ((LCTVisitor<? extends T>)visitor).visitFunctionName(this);
+			if ( visitor instanceof LCTVisitor ) return ((LCTVisitor<? extends T>)visitor).visitIntersectionFunc(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1461,6 +1469,7 @@ public class LCTParser extends Parser {
 		FunctionNameContext _localctx = new FunctionNameContext(_ctx, getState());
 		enterRule(_localctx, 22, RULE_functionName);
 		try {
+			_localctx = new IntersectionFuncContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(143);

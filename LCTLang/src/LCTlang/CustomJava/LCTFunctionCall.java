@@ -1,4 +1,6 @@
-package LCTlang;
+package LCTlang.CustomJava;
+
+import LCTlang.LCTParser;
 
 public class LCTFunctionCall {
     LCTParser.StatementBlockContext statements;

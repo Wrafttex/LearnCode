@@ -1,4 +1,4 @@
-package LCTlang;
+package LCTlang.CustomJava;
 
 public class Value extends Throwable {
 

@@ -1,8 +1,11 @@
 package LCTlang.statements;
 
 import LCTlang.*;
+import LCTlang.CustomJava.LCTFunctionCall;
+import LCTlang.CustomJava.LCTFunctionReturnException;
+import LCTlang.CustomJava.LCTIntersection;
+import LCTlang.CustomJava.Value;
 
-import java.beans.Expression;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -112,6 +115,13 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         ArrayList<Value> values = new ArrayList<Value>();
         int i = 0;
         String id = ctx.identifier().getText();
+
+        if (id.contains("intersection")) {
+            LCTIntersection Test = new LCTIntersection(this.visit(ctx.arguments().expr(0)), this.visit(ctx.arguments().expr(1)));
+            System.out.println(Test.IntersectionPoint());
+            return Value.VOID;
+        }
+
         LCTFunctionCall funcCall = functions.get(id);
 
         if (funcCall.getArguments() != null) {
@@ -128,6 +138,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             }
         }
 
+
         try {
             this.visit(funcCall.getStatements());
         } catch (LCTFunctionReturnException res) {
@@ -143,7 +154,6 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
 
         throw new LCTFunctionReturnException("Return statement found", this.visit(ctx.expr()));
     }
-
 
      /* Start of all Variables
      *  Start of all Variables

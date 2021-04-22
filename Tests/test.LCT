@@ -37,6 +37,7 @@ end
 
 function main()
     output(testFunc(nameReturn()))
+    intersection("y = 5 * x - 7", "y = 4 * x + 3")
 end
 
 main()

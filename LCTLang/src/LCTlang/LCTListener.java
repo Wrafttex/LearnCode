@@ -314,15 +314,17 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitArguments(LCTParser.ArgumentsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LCTParser#functionName}.
+	 * Enter a parse tree produced by the {@code IntersectionFunc}
+	 * labeled alternative in {@link LCTParser#functionName}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionName(LCTParser.FunctionNameContext ctx);
+	void enterIntersectionFunc(LCTParser.IntersectionFuncContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LCTParser#functionName}.
+	 * Exit a parse tree produced by the {@code IntersectionFunc}
+	 * labeled alternative in {@link LCTParser#functionName}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionName(LCTParser.FunctionNameContext ctx);
+	void exitIntersectionFunc(LCTParser.IntersectionFuncContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LCTParser#returnStatement}.
 	 * @param ctx the parse tree

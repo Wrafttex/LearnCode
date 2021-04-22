@@ -1,6 +1,6 @@
 package LCTlang.functions;
 
-import LCTlang.Value;
+import LCTlang.CustomJava.Value;
 import LCTlang.LCTBaseVisitor;
 import LCTlang.LCTParser;
 
@@ -34,8 +34,6 @@ public class FunctionVisitor extends LCTBaseVisitor<Object> {
     @Override public Object visitIdentifier(LCTParser.IdentifierContext ctx) { return visitChildren(ctx); }
 
     @Override public Object visitArguments(LCTParser.ArgumentsContext ctx) { return visitChildren(ctx); }
-
-    @Override public Object visitFunctionName(LCTParser.FunctionNameContext ctx) { return visitChildren(ctx); }
 
     @Override public Object visitReturnStatement(LCTParser.ReturnStatementContext ctx) { return visitChildren(ctx); }
 }

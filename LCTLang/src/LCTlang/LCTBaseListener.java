@@ -340,13 +340,13 @@ public class LCTBaseListener implements LCTListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionName(LCTParser.FunctionNameContext ctx) { }
+	@Override public void enterIntersectionFunc(LCTParser.IntersectionFuncContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionName(LCTParser.FunctionNameContext ctx) { }
+	@Override public void exitIntersectionFunc(LCTParser.IntersectionFuncContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -206,7 +206,7 @@ public class LCTBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements LC
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFunctionName(LCTParser.FunctionNameContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIntersectionFunc(LCTParser.IntersectionFuncContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
