@@ -24,7 +24,7 @@ function FizzBuzz(loopAmount)
         end
 
         if ( i % buzz == 0 ) then
-            print = print + "Buzz"
+            print = print +  "Buzz"
         end
 
         if ( print == "") then
@@ -36,12 +36,10 @@ function FizzBuzz(loopAmount)
 end
 
 function main()
-    output(testFunc(nameReturn()))
+    //output(testFunc(nameReturn()))
     intersection("y = 5 * x - 7", "y = 4 * x + 3")
+    output(-(4 + 5))
 end
 
+
 main()
-
-
-
-

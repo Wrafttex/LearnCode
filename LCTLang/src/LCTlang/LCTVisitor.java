@@ -41,6 +41,72 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitOutput(LCTParser.OutputContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LCTParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#functionCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCall(LCTParser.FunctionCallContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#identifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdentifier(LCTParser.IdentifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#arguments}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArguments(LCTParser.ArgumentsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#functionName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionName(LCTParser.FunctionNameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#returnStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnStatement(LCTParser.ReturnStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#statementBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatementBlock(LCTParser.StatementBlockContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#forStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForStatement(LCTParser.ForStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#forCondition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForCondition(LCTParser.ForConditionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#ifStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfStatement(LCTParser.IfStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LCTParser#conditionBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConditionBlock(LCTParser.ConditionBlockContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code AndExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
@@ -75,6 +141,13 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitRelationalExpr(LCTParser.RelationalExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code UnaryExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnaryExpr(LCTParser.UnaryExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code OrExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
@@ -139,6 +212,13 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNotExpr(LCTParser.NotExprContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code ParentExpr}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParentExpr(LCTParser.ParentExprContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code NumberVariable}
 	 * labeled alternative in {@link LCTParser#variable}.
 	 * @param ctx the parse tree
@@ -166,71 +246,4 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBooleanVariable(LCTParser.BooleanVariableContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#functionDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#functionCall}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunctionCall(LCTParser.FunctionCallContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#identifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIdentifier(LCTParser.IdentifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#arguments}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArguments(LCTParser.ArgumentsContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IntersectionFunc}
-	 * labeled alternative in {@link LCTParser#functionName}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIntersectionFunc(LCTParser.IntersectionFuncContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#returnStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitReturnStatement(LCTParser.ReturnStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#statementBlock}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStatementBlock(LCTParser.StatementBlockContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#forStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitForStatement(LCTParser.ForStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#forCondition}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitForCondition(LCTParser.ForConditionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#ifStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIfStatement(LCTParser.IfStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LCTParser#conditionBlock}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConditionBlock(LCTParser.ConditionBlockContext ctx);
 }

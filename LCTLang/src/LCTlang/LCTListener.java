@@ -58,6 +58,116 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitOutput(LCTParser.OutputContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LCTParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCall(LCTParser.FunctionCallContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCall(LCTParser.FunctionCallContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentifier(LCTParser.IdentifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentifier(LCTParser.IdentifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void enterArguments(LCTParser.ArgumentsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void exitArguments(LCTParser.ArgumentsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#functionName}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionName(LCTParser.FunctionNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#functionName}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionName(LCTParser.FunctionNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#returnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturnStatement(LCTParser.ReturnStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#returnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturnStatement(LCTParser.ReturnStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#statementBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementBlock(LCTParser.StatementBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#statementBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatementBlock(LCTParser.StatementBlockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#forStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterForStatement(LCTParser.ForStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#forStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitForStatement(LCTParser.ForStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#forCondition}.
+	 * @param ctx the parse tree
+	 */
+	void enterForCondition(LCTParser.ForConditionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#forCondition}.
+	 * @param ctx the parse tree
+	 */
+	void exitForCondition(LCTParser.ForConditionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#ifStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfStatement(LCTParser.IfStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#ifStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfStatement(LCTParser.IfStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LCTParser#conditionBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionBlock(LCTParser.ConditionBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#conditionBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionBlock(LCTParser.ConditionBlockContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code AndExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
@@ -117,6 +227,18 @@ public interface LCTListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitRelationalExpr(LCTParser.RelationalExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code UnaryExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterUnaryExpr(LCTParser.UnaryExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code UnaryExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitUnaryExpr(LCTParser.UnaryExprContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code OrExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
@@ -226,6 +348,18 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitNotExpr(LCTParser.NotExprContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code ParentExpr}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterParentExpr(LCTParser.ParentExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ParentExpr}
+	 * labeled alternative in {@link LCTParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitParentExpr(LCTParser.ParentExprContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code NumberVariable}
 	 * labeled alternative in {@link LCTParser#variable}.
 	 * @param ctx the parse tree
@@ -273,116 +407,4 @@ public interface LCTListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBooleanVariable(LCTParser.BooleanVariableContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#functionDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#functionDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunctionDeclaration(LCTParser.FunctionDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#functionCall}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunctionCall(LCTParser.FunctionCallContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#functionCall}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunctionCall(LCTParser.FunctionCallContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#identifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdentifier(LCTParser.IdentifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#identifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdentifier(LCTParser.IdentifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#arguments}.
-	 * @param ctx the parse tree
-	 */
-	void enterArguments(LCTParser.ArgumentsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#arguments}.
-	 * @param ctx the parse tree
-	 */
-	void exitArguments(LCTParser.ArgumentsContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code IntersectionFunc}
-	 * labeled alternative in {@link LCTParser#functionName}.
-	 * @param ctx the parse tree
-	 */
-	void enterIntersectionFunc(LCTParser.IntersectionFuncContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code IntersectionFunc}
-	 * labeled alternative in {@link LCTParser#functionName}.
-	 * @param ctx the parse tree
-	 */
-	void exitIntersectionFunc(LCTParser.IntersectionFuncContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#returnStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterReturnStatement(LCTParser.ReturnStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#returnStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitReturnStatement(LCTParser.ReturnStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#statementBlock}.
-	 * @param ctx the parse tree
-	 */
-	void enterStatementBlock(LCTParser.StatementBlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#statementBlock}.
-	 * @param ctx the parse tree
-	 */
-	void exitStatementBlock(LCTParser.StatementBlockContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#forStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterForStatement(LCTParser.ForStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#forStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitForStatement(LCTParser.ForStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#forCondition}.
-	 * @param ctx the parse tree
-	 */
-	void enterForCondition(LCTParser.ForConditionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#forCondition}.
-	 * @param ctx the parse tree
-	 */
-	void exitForCondition(LCTParser.ForConditionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#ifStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterIfStatement(LCTParser.IfStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#ifStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitIfStatement(LCTParser.IfStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LCTParser#conditionBlock}.
-	 * @param ctx the parse tree
-	 */
-	void enterConditionBlock(LCTParser.ConditionBlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LCTParser#conditionBlock}.
-	 * @param ctx the parse tree
-	 */
-	void exitConditionBlock(LCTParser.ConditionBlockContext ctx);
 }

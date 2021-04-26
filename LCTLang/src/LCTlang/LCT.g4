@@ -27,29 +27,6 @@ output
     : Print LeftParen expr RightParen
     ;
 
-expr
-    : variable                                               # VariableExpr
-    | expr '++'                                              # PostIncrementExpr
-    | expr '--'                                              # PostDecrementExpr
-    | '++' expr                                              # PreIncrementExpr
-    | '--' expr                                              # PreDecrementExpr
-    | '!' expr                                               # NotExpr
-    | expr op=Power expr                                     # PowerExpr
-    | expr op=(LessEqual|MoreEqual|LessThan|MoreThan) expr   # RelationalExpr
-    | expr op=(Multiply|Divide|Modulo) expr                  # MultiplicativeExpr
-    | expr op=(Plus|Minus) expr                              # AdditiveExpr
-    | expr op=(Equal|NotEqual) expr                          # EqualExpr
-    | expr AND expr                                          # AndExpr
-    | expr OR expr                                           # OrExpr
-    | functionCall                                           # FunctionReturn
-    ;
-
-variable
-    : (Int | Float)                      # NumberVariable
-    | Identifier                         # IdentifierVariable
-    | String                             # StringVariable
-    | (True | False)                     # BooleanVariable
-    ;
 
 functionDeclaration
     : Function identifier '(' arguments? ')' statementBlock
@@ -88,10 +65,6 @@ forStatement
 forCondition
     : loopCount=expr 'times'
     ;
-/*
-forCondition
-    : 'from' startExpr=expr range='to' endExpr=expr
-    ;*/
 
 ifStatement
     : If conditionBlock (Else If conditionBlock)* (Else Then statementBlock)?
@@ -99,6 +72,32 @@ ifStatement
 
 conditionBlock
     : '('expr')' Then statementBlock
+    ;
+
+expr
+    : '-' expr                                               # UnaryExpr
+    | expr op=Power expr                                     # PowerExpr
+    | expr '++'                                              # PostIncrementExpr
+    | expr '--'                                              # PostDecrementExpr
+    | '++' expr                                              # PreIncrementExpr
+    | '--' expr                                              # PreDecrementExpr
+    | '!' expr                                               # NotExpr
+    | expr op=(Multiply|Divide|Modulo) expr                  # MultiplicativeExpr
+    | expr op=(Plus|Minus) expr                              # AdditiveExpr
+    | expr op=(LessEqual|MoreEqual|LessThan|MoreThan) expr   # RelationalExpr
+    | expr op=(Equal|NotEqual) expr                          # EqualExpr
+    | expr AND expr                                          # AndExpr
+    | expr OR expr                                           # OrExpr
+    | variable                                               # VariableExpr
+    | functionCall                                           # FunctionReturn
+    ;
+
+variable
+    : LeftParen expr RightParen          # ParentExpr
+    | (Int | Float)                      # NumberVariable
+    | Identifier                         # IdentifierVariable
+    | String                             # StringVariable
+    | (True | False)                     # BooleanVariable
     ;
 
 // Tokens
@@ -124,6 +123,7 @@ Print: 'output';
 End: 'end';
 Then: 'then';
 
+// Encapsulation Tokens
 LeftParen: '(';
 RightParen: ')';
 LeftBracket: '[';
@@ -152,10 +152,11 @@ Not: '!';
 Equal: '==';
 
 String: '"' (~('\n' | '"'))* '"';
-Int: '0' | '-'?[1-9][0-9]*;
+Int: [0-9]+;
 Float: [0.9]*[.]?[0.9]+;
 Identifier: [a-zA-Z_] [a-zA-Z0-9_]*;
-
+BLOk_COMMENT: '/*' .*? '*/' -> skip;
+LINE_COMMENT: '//' ~[\r\n]* -> skip;
 Whitespace: [ \n\t\r]+ -> skip;
 
 //TODO Maybe split the files, into lexer grammar and parser grammar.

@@ -11,14 +11,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class StatementVisitor extends LCTBaseVisitor<Value>
 {
     private final Map<String, Value> memory = new HashMap<String, Value>();
     private final Map<String, LCTFunctionCall> functions = new HashMap<String, LCTFunctionCall>();
 
 /* Start of all Statements
-*  Start of all Statementsd
+*  Start of all Statements
 *  Start of all Statements*/
     @Override public Value visitAssignStatement(LCTParser.AssignStatementContext ctx) {
         if (ctx.getText().contains("=")) {
@@ -29,7 +28,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             String id = ctx.Identifier().getText();
             Value value = Value.VOID;
             return memory.put(id, value);
-    }
+        }
     }
 
     @Override public Value visitReassignment(LCTParser.ReassignmentContext ctx) {
@@ -49,19 +48,6 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             throw new RuntimeException("Missing end to encapsulate the loop");
 
         Value loopCount = this.visit(ctx.forCondition().loopCount);
-      /*  Value firstVal = this.visit(ctx.forCondition().startExpr)
-        Value secondVal = this.visit(ctx.forCondition().endExpr);
-        double i;
-
-        if (firstVal.asDouble() < secondVal.asDouble()) {
-            for (i = firstVal.asDouble() ; i < secondVal.asDouble(); i++){
-                this.visit(ctx.statementBlock());
-            }
-        } else if (firstVal.asDouble() > secondVal.asDouble()) {
-            for (i = firstVal.asDouble() ; i < secondVal.asDouble(); i--){
-                this.visit(ctx.statementBlock());
-            }
-        }*/
 
         for (int i = 0; i < loopCount.asDouble(); i++) {
             this.visit(ctx.statementBlock());
@@ -75,7 +61,6 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         boolean evaluatedBlock = false;
 
         for(LCTParser.ConditionBlockContext condition : conditions) {
-
             Value evaluated = this.visit(condition.expr());
 
             if(evaluated.asBoolean()) {
@@ -138,7 +123,6 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             }
         }
 
-
         try {
             this.visit(funcCall.getStatements());
         } catch (LCTFunctionReturnException res) {
@@ -164,6 +148,10 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
          return value;
      }
 
+    @Override public Value visitParentExpr(LCTParser.ParentExprContext ctx) {
+        Value value = this.visit(ctx.expr());
+        return value;
+     }
 
     @Override public Value visitIdentifierVariable(LCTParser.IdentifierVariableContext ctx) {
         String id = ctx.getText();
@@ -193,6 +181,11 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     *  Start of all Expr
     *  Start of all Expr*/
 
+    @Override public Value visitUnaryExpr(LCTParser.UnaryExprContext ctx) {
+        Value value = this.visit(ctx.expr());
+        return new Value(-value.asDouble());
+    }
+
     @Override public Value visitPostIncrementExpr(LCTParser.PostIncrementExprContext ctx) {
         Value expression = this.visit(ctx.expr());
         int i = 1;
@@ -217,13 +210,11 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         return new Value(i + expression.asDouble());
     }
 
-
     @Override public Value visitPowerExpr(LCTParser.PowerExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
         return new Value(Math.pow(left.asDouble(), right.asDouble()));
     }
-
 
     @Override public Value visitAdditiveExpr(LCTParser.AdditiveExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
