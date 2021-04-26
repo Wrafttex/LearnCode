@@ -153,7 +153,8 @@ Equal: '==';
 
 String: '"' (~('\n' | '"'))* '"';
 Int: [0-9]+;
-Float: [0.9]*[.]?[0.9]+;
+//Float: [0.9]*[.]?[0.9]+;
+Float: ([0-9]*[.])?[0-9]+;
 Identifier: [a-zA-Z_] [a-zA-Z0-9_]*;
 BLOk_COMMENT: '/*' .*? '*/' -> skip;
 LINE_COMMENT: '//' ~[\r\n]* -> skip;
