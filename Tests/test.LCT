@@ -1,44 +1,5 @@
-function nameReturn()
-    var name = "Tim"
-    return(name)
-end
-
-function testFunc(x)
-    var msg
-    msg = "Hello, " + x + " I'm the compiler"
-    return(msg)
-end
-
-function FizzBuzz(loopAmount)
-    var print = ""
-    var i = 0
-    var fizz = 3
-    var buzz = 5
-
-    loop loopAmount times
-        i = i++
-        print = ""
-
-        if ( i % fizz == 0 ) then
-            print = print + "Fizz"
-        end
-
-        if ( i % buzz == 0 ) then
-            print = print +  "Buzz"
-        end
-
-        if ( print == "") then
-            print = i
-        end
-
-        output(print)
-    end
-end
-
-function main()
-    //output(testFunc(nameReturn()))
-    intersection("y = 5 * x - 7", "y = 4 * x + 3")
-    output(1332.04/424)
-end
-
-main()
+var a = "x+5y+3==x*5-3"
+var b = 2 + 5
+output(b)
+b = 5
+output(b)

@@ -12,6 +12,7 @@ statement
     | forStatement
     | functionDeclaration
     | functionCall
+    | solveFunction
     ;
 
 assignStatement
@@ -55,7 +56,7 @@ returnStatement
     ;
 
 statementBlock
-    : statement+ returnStatement* End
+    : statement* returnStatement* End
     ;
 
 forStatement
@@ -74,14 +75,18 @@ conditionBlock
     : '('expr')' Then statementBlock
     ;
 
+solveFunction
+    : Solve LeftParen variable RightParen 'for' Identifier
+    ;
+
 expr
-    : '-' expr                                               # UnaryExpr
+    : Minus expr                                             # UnaryExpr
     | expr op=Power expr                                     # PowerExpr
-    | expr '++'                                              # PostIncrementExpr
-    | expr '--'                                              # PostDecrementExpr
-    | '++' expr                                              # PreIncrementExpr
-    | '--' expr                                              # PreDecrementExpr
-    | '!' expr                                               # NotExpr
+    | expr Increment                                         # PostIncrementExpr
+    | expr Decrement                                         # PostDecrementExpr
+    | Increment expr                                         # PreIncrementExpr
+    | Decrement expr                                         # PreDecrementExpr
+    | Not expr                                               # NotExpr
     | expr op=(Multiply|Divide|Modulo) expr                  # MultiplicativeExpr
     | expr op=(Plus|Minus) expr                              # AdditiveExpr
     | expr op=(LessEqual|MoreEqual|LessThan|MoreThan) expr   # RelationalExpr
@@ -122,6 +127,7 @@ Var: 'var';
 Print: 'output';
 End: 'end';
 Then: 'then';
+Solve: 'solve';
 
 // Encapsulation Tokens
 LeftParen: '(';
@@ -150,10 +156,11 @@ MoreEqual: '>=';
 NotEqual: '!=';
 Not: '!';
 Equal: '==';
+Increment: '++';
+Decrement: '--';
 
 String: '"' (~('\n' | '"'))* '"';
 Int: [0-9]+;
-//Float: [0.9]*[.]?[0.9]+;
 Float: ([0-9]*[.])?[0-9]+;
 Identifier: [a-zA-Z_] [a-zA-Z0-9_]*;
 BLOk_COMMENT: '/*' .*? '*/' -> skip;

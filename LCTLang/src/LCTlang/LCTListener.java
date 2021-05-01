@@ -168,6 +168,16 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitConditionBlock(LCTParser.ConditionBlockContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LCTParser#solveFunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterSolveFunction(LCTParser.SolveFunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LCTParser#solveFunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitSolveFunction(LCTParser.SolveFunctionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code AndExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree

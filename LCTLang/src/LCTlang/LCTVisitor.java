@@ -107,6 +107,12 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitConditionBlock(LCTParser.ConditionBlockContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LCTParser#solveFunction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSolveFunction(LCTParser.SolveFunctionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code AndExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree

@@ -1,10 +1,7 @@
 package LCTlang.statements;
 
 import LCTlang.*;
-import LCTlang.CustomJava.LCTFunctionCall;
-import LCTlang.CustomJava.LCTFunctionReturnException;
-import LCTlang.CustomJava.LCTIntersection;
-import LCTlang.CustomJava.Value;
+import LCTlang.CustomJava.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +23,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             return memory.put(id, value);
         } else {
             String id = ctx.Identifier().getText();
-            Value value = Value.VOID;
+            Value value = new Value(null);
             return memory.put(id, value);
         }
     }
@@ -102,8 +99,8 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         String id = ctx.identifier().getText();
 
         if (id.contains("intersection")) {
-            LCTIntersection Test = new LCTIntersection(this.visit(ctx.arguments().expr(0)), this.visit(ctx.arguments().expr(1)));
-            System.out.println(Test.IntersectionPoint());
+            LCTIntersection intersect = new LCTIntersection(this.visit(ctx.arguments().expr(0)), this.visit(ctx.arguments().expr(1)));
+            System.out.println(intersect.IntersectionPoint());
             return Value.VOID;
         }
 
@@ -126,7 +123,15 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         try {
             this.visit(funcCall.getStatements());
         } catch (LCTFunctionReturnException res) {
-            return new Value(res.getCause());
+            String testCase = String.valueOf(res.getCause());
+            if (testCase.matches("[-+]?([0-9]*[.])?[0-9]+")) {
+                //System.out.println("double: " + Double.valueOf(testCase));
+                return new Value(Double.valueOf(testCase));
+
+            } else {
+                //System.out.println("string: " + testCase);
+                return new Value(testCase);
+            }
         }
         return Value.VOID;
     }
@@ -136,7 +141,18 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             throw new RuntimeException("Missing ( ) around return expression");
         }
 
+        //System.out.println(ctx.expr().getText());
         throw new LCTFunctionReturnException("Return statement found", this.visit(ctx.expr()));
+    }
+
+    @Override public Value visitSolveFunction(LCTParser.SolveFunctionContext ctx) {
+
+        Value input = this.visit(ctx.variable());
+        String solveFor = ctx.Identifier().getText();
+        LCTSolve solve = new LCTSolve(input, solveFor);
+        System.out.println(solve.solve());
+
+        return Value.VOID;
     }
 
      /* Start of all Variables
@@ -187,27 +203,87 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     }
 
     @Override public Value visitPostIncrementExpr(LCTParser.PostIncrementExprContext ctx) {
-        Value expression = this.visit(ctx.expr());
-        int i = 1;
-        return new Value(expression.asDouble() + i);
+        String id = ctx.expr().getText();
+        Value incrementedValue;
+        Value value;
+        double i = 1;
+
+        if (id.matches("[a-zA-Z_][a-zA-Z0-9_]*") == false)
+            throw new RuntimeException("Only variables can be incremented");
+
+        if (memory.containsKey(id)) {
+            value = memory.get(id);
+            if (value.asDouble() != null)
+                incrementedValue = new Value(value.asDouble() + i);
+            else
+                incrementedValue = new Value(i);
+            memory.replace(id, incrementedValue);
+            return incrementedValue;
+        } else
+            throw new RuntimeException("Variable does not exits");
     }
 
     @Override public Value visitPostDecrementExpr(LCTParser.PostDecrementExprContext ctx) {
-        Value expression = this.visit(ctx.expr());
-        int i = 1;
-        return new Value(expression.asDouble() - i);
+        String id = ctx.expr().getText();
+        Value incrementedValue;
+        Value value;
+        double i = 1;
+
+        if (id.matches("[a-zA-Z_][a-zA-Z0-9_]*") == false)
+            throw new RuntimeException("Only variables can be incremented");
+
+        if (memory.containsKey(id)) {
+            value = memory.get(id);
+            if (value.asDouble() != null)
+                incrementedValue = new Value(value.asDouble() - i);
+            else
+                incrementedValue = new Value(0);
+            memory.replace(id, incrementedValue);
+            return incrementedValue;
+        } else
+            throw new RuntimeException("Variable does not exits");
     }
 
     @Override public Value visitPreIncrementExpr(LCTParser.PreIncrementExprContext ctx) {
-        Value expression = this.visit(ctx.expr());
-        int i = 1;
-        return new Value(i + expression.asDouble());
+        String id = ctx.expr().getText();
+        Value incrementedValue;
+        Value value;
+        double i = 1;
+
+        if (id.matches("[a-zA-Z_][a-zA-Z0-9_]*") == false)
+            throw new RuntimeException("Only variables can be incremented");
+
+        if (memory.containsKey(id)) {
+            value = memory.get(id);
+            if (value.asDouble() != null)
+                incrementedValue = new Value(value.asDouble() + i);
+            else
+                incrementedValue = new Value(i);
+            memory.replace(id, incrementedValue);
+            return incrementedValue;
+        } else
+            throw new RuntimeException("Variable does not exits");
     }
 
     @Override public Value visitPreDecrementExpr(LCTParser.PreDecrementExprContext ctx) {
-        Value expression = this.visit(ctx.expr());
-        int i = -1;
-        return new Value(i + expression.asDouble());
+        String id = ctx.expr().getText();
+        Value incrementedValue;
+        Value value;
+        double i = 1;
+
+        if (id.matches("[a-zA-Z_][a-zA-Z0-9_]*") == false)
+            throw new RuntimeException("Only variables can be incremented");
+
+        if (memory.containsKey(id)) {
+            value = memory.get(id);
+            if (value.asDouble() != null)
+                incrementedValue = new Value(value.asDouble() - i);
+            else
+                incrementedValue = new Value(i);
+            memory.replace(id, incrementedValue);
+            return incrementedValue;
+        } else
+            throw new RuntimeException("Variable does not exits");
     }
 
     @Override public Value visitPowerExpr(LCTParser.PowerExprContext ctx) {
@@ -219,6 +295,9 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     @Override public Value visitAdditiveExpr(LCTParser.AdditiveExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
+
+        //System.out.println("left: " + left.asDouble());
+        //System.out.println("right: " + right.asDouble());
 
         switch (ctx.op.getType()) {
             case LCTParser.Plus:
