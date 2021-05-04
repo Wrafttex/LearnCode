@@ -197,6 +197,13 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAdditiveExpr(LCTParser.AdditiveExprContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code SubtractiveExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubtractiveExpr(LCTParser.SubtractiveExprContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code PostDecrementExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree

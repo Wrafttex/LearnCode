@@ -1,5 +1,123 @@
-var a = "x+5y+3==x*5-3"
-var b = 2 + 5
-output(b)
-b = 5
-output(b)
+function calcTestFunc()
+    var i
+
+    output("--------------- addition ---------------")
+    output("103.4 + 10144 = " + (103.4 + 10144) + " Result Should be: 10247.4")
+    output("521 + -123 = " + (521 + -123) + " Result Should be: 398")
+    output("22 + -5.1 = " + (22 + -5.1) + " Result Should be: 16.9")
+    output("-5 + 22.6 = " + (-5 + 22.6) + " Result Should be: 17.6")
+    output("Hello" + " World!" + " = " + ("Hello" + " World!") + " Result Should be: Hello World!")
+    //output("-5 + 22.6 = " + (-5 + 22.6) + " Result Should be: 17.6")
+
+    output("--------------- subtraction ---------------")
+    output("579 - 246 = " + (579 - 246) + " Result Should be: 333")
+    output("475.7 - -925 = " + (475.7 - -925) + " Result Should be: 1400.7")
+    output("-219 - -87.4 = " + (-219 - -87.4) + " Result Should be: -131.6")
+    output("-879.6 - 66.1 = " + (-879.6 - 66.1) + " Result Should be: -945.7")
+
+    output("--------------- multiplication ---------------")
+    output("742 * 32 = " + (742 * 32) + " Result Should be: 23744")
+    output("-148 * -67 = " + (-148 * -67) + " Result Should be: 9916")
+    output("54 * -5.5 = " + (54 * -5.5) + " Result Should be: -297")
+    output("-7.1 * 80.4 = " + (-7.1 * 80.4) + " Result Should be: -570.84")
+
+    output("--------------- division ---------------")
+    output("150 / 29 = " + (150 / 29) + " Result Should be: 5.1724137931")
+    output("-719 / -42 = " + (-719 / -42) + " Result Should be: 17.119047619")
+    output("15 / -4.3 = " + (15 / -4.3) + " Result Should be: -3.48837209302")
+    output("-95.3 / -59 = " + (-95.3 / -59) + " Result Should be: 1.61525423729")
+
+    output("--------------- zero division ---------------")
+    //output("22 / 0 = " + (22 / 0) + " Result Should be: Undefined")
+    output("0 / 5 = " + (0 / 5) + " Result Should be: 0")
+
+    output("--------------- increment ---------------")
+    i = 0
+    output("Result Should be: 2 row of 1 to 25")
+    loop 25 times
+        output(i++)
+    end
+    i = 0
+    loop 25 times
+        output(++i)
+    end
+
+    output("--------------- decrement ---------------")
+    i = 25
+    output("Result Should be: 2 row of 24 to 0")
+    loop 25 times
+        output(i--)
+    end
+    i = 25
+    loop 25 times
+        output(--i)
+    end
+
+    output("--------------- unary ---------------")
+    var x = 25
+    output("-(23^2) = " + -(23^2) + " Result Should be: -529")
+    output("-(5+4.3)) = " + -(5+4.3) + " Result Should be: -9.3")
+    output("-x, x is set to 25 = " + (-x) + " Result Should be: -25")
+
+    output("--------------- power ---------------")
+    output("23^2 = " + (23^2) + " Result Should be: 529")
+    output("2^6 = " + (2^6) + " Result Should be: 64")
+    output("512^12 = " + (512^12) + " Result Should be: 3.2451855e+32")
+    output("-3^2 = " + (-3^2) + " Result Should be: -9")
+    output("(-3)^2 = " + ((-3)^2) + " Result Should be: 9")
+    output("12^-2 = " + (12^-2) + " Result Should be: 0.00694444444")
+
+    output("--------------- relational ---------------")
+    output("12 < 124 = " + (12 < 124) + " Result Should be: true")
+    output("12 > 124 = " + (12 > 124) + " Result Should be: false")
+    output("x = 25, x < 25 = " + (x < 25) + " Result Should be: false")
+
+    output("x = 25, x <= 25 = " + (x <= 25) + " Result Should be: true")
+    output("912 <= 345 = " + (912 <= 345) + " Result Should be: false")
+    output("23 <= 82 =  " + (23 <= 82) + " Result Should be: true")
+
+    output("561 >= 478 = " + (561 >= 478) + " Result Should be: true")
+    output("12 >= 679 = " + (12 >= 679) + " Result Should be: false")
+    output("56 >= 56 = " + (56 >= 56) + " Result Should be: true")
+
+    output("--------------- equal ---------------")
+    output("56 == 56 = " + (56 == 56) + " Result Should be: true")
+    output("78 == 10 = " + (78 == 10) + " Result Should be: false")
+    output("x = 25, x == 25 = " + (x == 25) + " Result Should be: true")
+    output("x = 25, (x < 10) == false = " + ((x < 10) == false) + " Result Should be: true")
+    output("x = 25, x != 25 = " + (x != 25) + " Result Should be: false")
+    output("true != false = " + (true != false) + " Result Should be: true")
+
+    output("--------------- and ---------------")
+    output("true and true = " + (true AND true) + " Result Should be: true")
+    output("true and false = " + (true AND false) + " Result Should be: false")
+    output("false and true = " + (false AND true) + " Result Should be: false")
+    output("false and false = " + (false AND false) + " Result Should be: false")
+
+    output("--------------- or ---------------")
+    output("true or true = " + (true OR true) + " Result Should be: true")
+    output("true or false = " + (true OR false) + " Result Should be: true")
+    output("false or true = " + (false OR true) + " Result Should be: true")
+    output("false or false = " + (false OR false) + " Result Should be: false")
+
+    output("--------------- Intersection ---------------")
+    output("Intersection between y=2*x+9 and y=3*x+7")
+    intersection("y=2*x+9","y=3*x+7")
+    output("Result Should be: (2, 13)")
+    output("Intersection between y=3*x+2 and y=2*x-1")
+    intersection("y=3*x+2","y=2*x-1")
+    output("Result Should be: (-3, -7)")
+    output("Intersection between y=3*x+9 and y=3*x+7")
+    intersection("y=3*x+9","y=3*x+7")
+    output("Result Should be: The lines are parallel and therefore don't intersect")
+
+    output("--------------- Solve ---------------")
+    output("Solve for x in x+5+3==x*5-3")
+    solve("x+5+3==x*5-3") for x
+    output("Result Should be: x = 2.75")
+    output("Solve for x in x+5+3==x*5-3*y")
+    solve("x+5+3==x*5-3*y") for x
+    output("Result Should be: x = 0.75y + 2")
+end
+
+calcTestFunc()

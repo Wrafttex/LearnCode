@@ -322,6 +322,18 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitAdditiveExpr(LCTParser.AdditiveExprContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code SubtractiveExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterSubtractiveExpr(LCTParser.SubtractiveExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code SubtractiveExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitSubtractiveExpr(LCTParser.SubtractiveExprContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code PostDecrementExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree

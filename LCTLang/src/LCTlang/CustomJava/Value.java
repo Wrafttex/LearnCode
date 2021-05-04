@@ -25,6 +25,10 @@ public class Value extends Throwable {
     public boolean isDouble() {
         return value instanceof Double;
     }
+    public boolean isString() { return value instanceof String; }
+    public boolean isBoolean() {
+        return value instanceof Boolean;
+    }
 
     @Override
     public int hashCode() {

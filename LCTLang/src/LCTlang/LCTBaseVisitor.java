@@ -220,6 +220,13 @@ public class LCTBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements LC
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitSubtractiveExpr(LCTParser.SubtractiveExprContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitPostDecrementExpr(LCTParser.PostDecrementExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

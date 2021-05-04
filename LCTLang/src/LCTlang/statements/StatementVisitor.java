@@ -44,9 +44,11 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         if (!endCheck.substring(endCheck.length() - 3).contains("end"))
             throw new RuntimeException("Missing end to encapsulate the loop");
 
-        Value loopCount = this.visit(ctx.forCondition().loopCount);
+        if(ctx.forCondition().Int() == null)
+            throw new RuntimeException("Loops only accepts integer values for loop amount");
+        int loopCount = Integer.parseInt(ctx.forCondition().Int().getText());
 
-        for (int i = 0; i < loopCount.asDouble(); i++) {
+        for (int i = 0; i < loopCount; i++) {
             this.visit(ctx.statementBlock());
         }
 
@@ -57,19 +59,21 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         List<LCTParser.ConditionBlockContext> conditions =  ctx.conditionBlock();
         boolean evaluatedBlock = false;
 
+        // If statements and else if statements
         for(LCTParser.ConditionBlockContext condition : conditions) {
             Value evaluated = this.visit(condition.expr());
-
+            if (evaluated.isBoolean() == false)
+                throw new RuntimeException("If statements only accept boolean expressions");
             if(evaluated.asBoolean()) {
                 evaluatedBlock = true;
-                // evaluate this block whose expr==true
+                //Evaluating if condition is met
                 this.visit(condition.statementBlock());
                 break;
             }
         }
 
+        // Else statements
         if(!evaluatedBlock && ctx.statementBlock() != null) {
-            // evaluate the else-stat_block (if present == not null)
             this.visit(ctx.statementBlock());
         }
 
@@ -98,14 +102,16 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         int i = 0;
         String id = ctx.identifier().getText();
 
+        // Saved function names.
         if (id.contains("intersection")) {
             LCTIntersection intersect = new LCTIntersection(this.visit(ctx.arguments().expr(0)), this.visit(ctx.arguments().expr(1)));
             System.out.println(intersect.IntersectionPoint());
             return Value.VOID;
         }
 
+        // Gets the statements form function declaration
         LCTFunctionCall funcCall = functions.get(id);
-
+        // Handling arguments from function call
         if (funcCall.getArguments() != null) {
             if (ctx.arguments() == null)
                 throw new RuntimeException("Missing arguments in function call for: " + id);
@@ -120,16 +126,15 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             }
         }
 
+        // Handling return statements
         try {
             this.visit(funcCall.getStatements());
         } catch (LCTFunctionReturnException res) {
             String testCase = String.valueOf(res.getCause());
             if (testCase.matches("[-+]?([0-9]*[.])?[0-9]+")) {
-                //System.out.println("double: " + Double.valueOf(testCase));
                 return new Value(Double.valueOf(testCase));
 
             } else {
-                //System.out.println("string: " + testCase);
                 return new Value(testCase);
             }
         }
@@ -146,9 +151,12 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     }
 
     @Override public Value visitSolveFunction(LCTParser.SolveFunctionContext ctx) {
-
         Value input = this.visit(ctx.variable());
+        if (input.isString() == false)
+                throw new RuntimeException("The equation needs to be in a string format");
         String solveFor = ctx.Identifier().getText();
+       if (input.asString().contains(solveFor) == false)
+            throw new RuntimeException("The variable you want to solve for is not in the equation");
         LCTSolve solve = new LCTSolve(input, solveFor);
         System.out.println(solve.solve());
 
@@ -199,6 +207,10 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
 
     @Override public Value visitUnaryExpr(LCTParser.UnaryExprContext ctx) {
         Value value = this.visit(ctx.expr());
+
+        if(value.isDouble() == false)
+            throw new RuntimeException("Only numbers can be used with unary expression");
+
         return new Value(-value.asDouble());
     }
 
@@ -289,6 +301,10 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     @Override public Value visitPowerExpr(LCTParser.PowerExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
+
+        if((left.isDouble() && right.isDouble()) == false)
+            throw new RuntimeException("Only numbers can be used with ^");
+
         return new Value(Math.pow(left.asDouble(), right.asDouble()));
     }
 
@@ -296,30 +312,36 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
-        //System.out.println("left: " + left.asDouble());
-        //System.out.println("right: " + right.asDouble());
+        if ((left.isString() || left.isDouble() && right.isString() || right.isDouble()) == false)
+            throw new RuntimeException("Only strings and numbers can be added");
 
-        switch (ctx.op.getType()) {
-            case LCTParser.Plus:
                 return left.isDouble() && right.isDouble() ?
                         new Value(left.asDouble() + right.asDouble()) :
                         new Value(left.asString() + right.asString());
-            case LCTParser.Minus:
-                return new Value(left.asDouble() - right.asDouble());
-            default:
-                throw new RuntimeException("unknown operator: " + LCTParser.tokenNames[ctx.op.getType()]);
-        }
+    }
+
+    @Override public Value visitSubtractiveExpr(LCTParser.SubtractiveExprContext ctx) {
+        Value left = this.visit(ctx.expr(0));
+        Value right = this.visit(ctx.expr(1));
+
+        if ((left.isDouble() && right.isDouble()) == false)
+            throw new RuntimeException("Only numbers can be subtracted");
+
+        return new Value(left.asDouble() - right.asDouble());
     }
 
     @Override public Value visitMultiplicativeExpr(LCTParser.MultiplicativeExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
+        if ((left.isDouble() && right.isDouble()) == false)
+            throw new RuntimeException("Only numbers can be be used for multiplicative expressions");
+
         switch (ctx.op.getType()) {
             case LCTParser.Multiply:
                 return new Value(left.asDouble() * right.asDouble());
             case LCTParser.Divide:
-                if (left.asDouble() == 0 || right.asDouble() == 0) {
+                if (right.asDouble() == 0) {
                     throw new RuntimeException("Division with 0 is illegal");
                     //return left.asDouble() == 0 ? right : left;
                 }
@@ -334,6 +356,9 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     @Override public Value visitRelationalExpr(LCTParser.RelationalExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
+
+        if((left.isDouble() && right.isDouble()) == false)
+            throw new RuntimeException("Only numbers can be used with relational expressions");
 
         switch (ctx.op.getType()) {
             case LCTParser.LessThan:
@@ -372,12 +397,18 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     @Override public Value visitAndExpr(LCTParser.AndExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
+
+        if((left.isBoolean() && right.isBoolean()) == false)
+            throw new RuntimeException("Only boolean expressions can be used with AND");
         return new Value(left.asBoolean() && right.asBoolean());
     }
 
     @Override public Value visitOrExpr(LCTParser.OrExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
+
+        if((left.isBoolean() && right.isBoolean()) == false)
+            throw new RuntimeException("Only boolean expressions can be used with OR");
         return new Value(left.asBoolean() || right.asBoolean());
     }
 

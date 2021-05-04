@@ -16,12 +16,12 @@ statement
     ;
 
 assignStatement
-    : Var Identifier '=' expr
+    : Var Identifier Assign expr
     | Var Identifier
     ;
 
 reassignment
-    : Identifier '=' expr
+    : Identifier Assign expr
     ;
 
 output
@@ -29,11 +29,11 @@ output
     ;
 
 functionDeclaration
-    : Function identifier '(' arguments? ')' statementBlock
+    : Function identifier LeftParen arguments? RightParen statementBlock
     ;
 
 functionCall
-    : identifier '(' arguments? ')'
+    : identifier LeftParen arguments? RightParen
     ;
 
 identifier
@@ -42,7 +42,7 @@ identifier
     ;
 
 arguments
-    : expr (',' expr)*
+    : expr (Comma expr)*
     ;
 
 //TODO Implement reserved functions
@@ -59,11 +59,11 @@ statementBlock
     ;
 
 forStatement
-    : For forCondition statementBlock
+    : Loop forCondition statementBlock
     ;
 
 forCondition
-    : loopCount=expr 'times'
+    : loopCount=Int 'times'
     ;
 
 ifStatement
@@ -71,11 +71,11 @@ ifStatement
     ;
 
 conditionBlock
-    : '('expr')' Then statementBlock
+    : LeftParen expr RightParen Then statementBlock
     ;
 
 solveFunction
-    : Solve LeftParen variable RightParen 'for' Identifier
+    : Solve LeftParen variable RightParen For Identifier
     ;
 
 expr
@@ -87,9 +87,10 @@ expr
     | Decrement expr                                         # PreDecrementExpr
     | Not expr                                               # NotExpr
     | expr op=(Multiply|Divide|Modulo) expr                  # MultiplicativeExpr
-    | expr op=(Plus|Minus) expr                              # AdditiveExpr
     | expr op=(LessEqual|MoreEqual|LessThan|MoreThan) expr   # RelationalExpr
     | expr op=(Equal|NotEqual) expr                          # EqualExpr
+    | expr Plus expr                                         # AdditiveExpr
+    | expr Minus expr                                        # SubtractiveExpr
     | expr AND expr                                          # AndExpr
     | expr OR expr                                           # OrExpr
     | variable                                               # VariableExpr
@@ -113,14 +114,14 @@ Single_comment: '#' ~[\r|\n]* -> skip;          //
 //Reserved keywords
 Function: 'function';
 Break: 'break';
-For: 'loop';
+For: 'for';
+Loop: 'loop';
 If: 'if';
 Else: 'else';
 Square_root: 'sqrt';
 OR: 'OR';                   // Instead of ||
 AND: 'AND';                 // Instead of &&
-True: 'true';
-False: 'false';
+
 Return: 'return';
 Var: 'var';
 Print: 'output';
@@ -158,11 +159,16 @@ Equal: '==';
 Increment: '++';
 Decrement: '--';
 
+True: 'true';
+False: 'false';
+//String: '"' (~["\r\n]|'"' )* '"';
 String: '"' (~('\n' | '"'))* '"';
+//String: '"' (~["])+ '"';
 Int: [0-9]+;
 Float: ([0-9]*[.])?[0-9]+;
 Identifier: [a-zA-Z_] [a-zA-Z0-9_]*;
-BLOk_COMMENT: '/*' .*? '*/' -> skip;
+
+BLOK_COMMENT: '/*' .*? '*/' -> skip;
 LINE_COMMENT: '//' ~[\r\n]* -> skip;
 Whitespace: [ \n\t\r]+ -> skip;
 
