@@ -80,17 +80,17 @@ solveFunction
 
 expr
     : Minus expr                                             # UnaryExpr
-    | expr op=Power expr                                     # PowerExpr
+    | expr Power expr                                     # PowerExpr
     | expr Increment                                         # PostIncrementExpr
     | expr Decrement                                         # PostDecrementExpr
     | Increment expr                                         # PreIncrementExpr
     | Decrement expr                                         # PreDecrementExpr
     | Not expr                                               # NotExpr
     | expr op=(Multiply|Divide|Modulo) expr                  # MultiplicativeExpr
-    | expr op=(LessEqual|MoreEqual|LessThan|MoreThan) expr   # RelationalExpr
-    | expr op=(Equal|NotEqual) expr                          # EqualExpr
     | expr Plus expr                                         # AdditiveExpr
     | expr Minus expr                                        # SubtractiveExpr
+    | expr op=(LessEqual|MoreEqual|LessThan|MoreThan) expr   # RelationalExpr
+    | expr op=(Equal|NotEqual) expr                          # EqualExpr
     | expr AND expr                                          # AndExpr
     | expr OR expr                                           # OrExpr
     | variable                                               # VariableExpr

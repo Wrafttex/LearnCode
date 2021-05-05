@@ -104,7 +104,11 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
 
         // Saved function names.
         if (id.contains("intersection")) {
-            LCTIntersection intersect = new LCTIntersection(this.visit(ctx.arguments().expr(0)), this.visit(ctx.arguments().expr(1)));
+            Value line1 = this.visit(ctx.arguments().expr(0));
+            Value line2 = this.visit(ctx.arguments().expr(1));
+            if((line1.isString() && line2.isString()) == false)
+                throw new RuntimeException("Intersection only accepts equations in string format");
+            LCTIntersection intersect = new LCTIntersection(line1, line2);
             System.out.println(intersect.IntersectionPoint());
             return Value.VOID;
         }

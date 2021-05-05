@@ -1714,11 +1714,35 @@ public class LCTParser extends Parser {
 						break;
 					case 3:
 						{
-						_localctx = new RelationalExprContext(new ExprContext(_parentctx, _parentState));
+						_localctx = new AdditiveExprContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(174);
 						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
 						setState(175);
+						match(Plus);
+						setState(176);
+						expr(9);
+						}
+						break;
+					case 4:
+						{
+						_localctx = new SubtractiveExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(177);
+						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
+						setState(178);
+						match(Minus);
+						setState(179);
+						expr(8);
+						}
+						break;
+					case 5:
+						{
+						_localctx = new RelationalExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(180);
+						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
+						setState(181);
 						((RelationalExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LessThan) | (1L << MoreThan) | (1L << LessEqual) | (1L << MoreEqual))) != 0)) ) {
@@ -1729,17 +1753,17 @@ public class LCTParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(176);
-						expr(9);
+						setState(182);
+						expr(7);
 						}
 						break;
-					case 4:
+					case 6:
 						{
 						_localctx = new EqualExprContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(177);
-						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
-						setState(178);
+						setState(183);
+						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
+						setState(184);
 						((EqualExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==NotEqual || _la==Equal) ) {
@@ -1750,30 +1774,6 @@ public class LCTParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(179);
-						expr(8);
-						}
-						break;
-					case 5:
-						{
-						_localctx = new AdditiveExprContext(new ExprContext(_parentctx, _parentState));
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(180);
-						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(181);
-						match(Plus);
-						setState(182);
-						expr(7);
-						}
-						break;
-					case 6:
-						{
-						_localctx = new SubtractiveExprContext(new ExprContext(_parentctx, _parentState));
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(183);
-						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(184);
-						match(Minus);
 						setState(185);
 						expr(6);
 						}
@@ -2117,9 +2117,9 @@ public class LCTParser extends Parser {
 		"\u00a8\u00a4\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a8\u00a7\3\2\2\2\u00a9\u00c8"+
 		"\3\2\2\2\u00aa\u00ab\f\21\2\2\u00ab\u00ac\7#\2\2\u00ac\u00c7\5$\23\22"+
 		"\u00ad\u00ae\f\13\2\2\u00ae\u00af\t\2\2\2\u00af\u00c7\5$\23\f\u00b0\u00b1"+
-		"\f\n\2\2\u00b1\u00b2\t\3\2\2\u00b2\u00c7\5$\23\13\u00b3\u00b4\f\t\2\2"+
-		"\u00b4\u00b5\t\4\2\2\u00b5\u00c7\5$\23\n\u00b6\u00b7\f\b\2\2\u00b7\u00b8"+
-		"\7\37\2\2\u00b8\u00c7\5$\23\t\u00b9\u00ba\f\7\2\2\u00ba\u00bb\7 \2\2\u00bb"+
+		"\f\n\2\2\u00b1\u00b2\7\37\2\2\u00b2\u00c7\5$\23\13\u00b3\u00b4\f\t\2\2"+
+		"\u00b4\u00b5\7 \2\2\u00b5\u00c7\5$\23\n\u00b6\u00b7\f\b\2\2\u00b7\u00b8"+
+		"\t\3\2\2\u00b8\u00c7\5$\23\t\u00b9\u00ba\f\7\2\2\u00ba\u00bb\t\4\2\2\u00bb"+
 		"\u00c7\5$\23\b\u00bc\u00bd\f\6\2\2\u00bd\u00be\7\17\2\2\u00be\u00c7\5"+
 		"$\23\7\u00bf\u00c0\f\5\2\2\u00c0\u00c1\7\16\2\2\u00c1\u00c7\5$\23\6\u00c2"+
 		"\u00c3\f\20\2\2\u00c3\u00c7\7-\2\2\u00c4\u00c5\f\17\2\2\u00c5\u00c7\7"+
