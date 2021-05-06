@@ -25,7 +25,7 @@ reassignment
     ;
 
 output
-    : Print LeftParen expr RightParen
+    : Output LeftParen expr RightParen
     ;
 
 functionDeclaration
@@ -63,7 +63,7 @@ forStatement
     ;
 
 forCondition
-    : loopCount=Int 'times'
+    : loopCount=Int Times
     ;
 
 ifStatement
@@ -80,7 +80,7 @@ solveFunction
 
 expr
     : Minus expr                                             # UnaryExpr
-    | expr Power expr                                     # PowerExpr
+    | expr Power expr                                        # PowerExpr
     | expr Increment                                         # PostIncrementExpr
     | expr Decrement                                         # PostDecrementExpr
     | Increment expr                                         # PreIncrementExpr
@@ -124,10 +124,11 @@ AND: 'AND';                 // Instead of &&
 
 Return: 'return';
 Var: 'var';
-Print: 'output';
+Output: 'output';
 End: 'end';
 Then: 'then';
 Solve: 'solve';
+Times: 'times';
 
 // Encapsulation Tokens
 LeftParen: '(';

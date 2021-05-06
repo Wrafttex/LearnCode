@@ -24,8 +24,8 @@ function calcTestFunc()
     output("-148 * -67 = " + (-148 * -67) + " Result Should be: 9916")
     output("54 * -5.5 = " + (54 * -5.5) + " Result Should be: -297")
     output("-7.1 * 80.4 = " + (-7.1 * 80.4) + " Result Should be: -570.84")
-    //output("Hello * World! = " + " Result Should be: Only numbers can be be used for multiplicative expressions")
-    //output(Hello * World!)
+    //output("true * false = " + " Result Should be: Only numbers can be be used for multiplicative expressions")
+    //output(true * false)
 
     output("--------------- division ---------------")
     output("150 / 29 = " + (150 / 29) + " Result Should be: 5.1724137931")
@@ -36,7 +36,7 @@ function calcTestFunc()
     //output("true / false"  + " Result Should be: Only numbers can be be used for multiplicative expressions")
     //output(true / false)
     //output("Hello / World!" + " Result Should be: Only numbers can be be used for multiplicative expressions")
-    //output(Hello / World!)
+    //output("Hello" / "World!")
 
     output("--------------- zero division ---------------")
     output("0 / 5 = " + (0 / 5) + " Result Should be: 0")
@@ -51,6 +51,9 @@ function calcTestFunc()
         output(i++)
     end
     output("Result Should be: String of 1 to 25")
+    //output("--5+2 Result Should be: Only variables can be incremented")
+    //output(--5+2)
+
     i = 0
     output("++i Called 25 times on i = 0")
        loop 25 times
@@ -71,8 +74,7 @@ function calcTestFunc()
            output(--i)
        end
     output("Result Should be: String of 24 to 0")
-    //output("++test Result Should be: Only variables can be incremented")
-    //output(++test)
+
 
     output("--------------- unary ---------------")
     var x = 25
@@ -121,13 +123,16 @@ function calcTestFunc()
     output("true == false = " + (true == false) + " Result Should be: false")
     output("true == true = " + (true == true) + " Result Should be: true")
     output("5 + 2 == 7 = " + (5 + 2 == 7) + " Result Should be: true")
+    output("5 + 2 != 7 = " + (5 + 2 != 7) + " Result Should be: false")
+    output("7 == 5 + 2 = " + (7 == 5 + 2) + " Result Should be: true")
+    output("7 != 5 + 2  = " + (7 != 5 + 2) + " Result Should be: false")
 
     output("--------------- and ---------------")
     output("true and true = " + (true AND true) + " Result Should be: true")
     output("true and false = " + (true AND false) + " Result Should be: false")
     output("false and true = " + (false AND true) + " Result Should be: false")
     output("false and false = " + (false AND false) + " Result Should be: false")
-    //output("5 and 6 =      Result Should be: Only boolean expressions can be used with AND")
+    //output("5 and 6! =      Result Should be: Only boolean expressions can be used with AND")
     //output(5 AND 6)
 
     output("--------------- or ---------------")
@@ -135,8 +140,8 @@ function calcTestFunc()
     output("true or false = " + (true OR false) + " Result Should be: true")
     output("false or true = " + (false OR true) + " Result Should be: true")
     output("false or false = " + (false OR false) + " Result Should be: false")
-    //output("Hello and World! =      Result Should be: Only boolean expressions can be used with OR")
-    //output("Hello" AND "World!")
+    //output("1553 and 586 =      Result Should be: Only boolean expressions can be used with OR")
+    //output(1553 AND 586)
 
     output("--------------- Intersection ---------------")
     output("Intersection between y=2*x+9 and y=3*x+7")
@@ -148,11 +153,12 @@ function calcTestFunc()
     output("Intersection between y=3*x+9 and y=3*x+7")
     intersection("y=3*x+9","y=3*x+7")
     output("Result Should be: The lines are parallel and therefore don't intersect")
-    /*
-    output("Intersection between true and true")
+
+/*
+    output("Intersection between 359 and 29374895")
     output("Result Should be: Intersection only accepts equations in string format")
-    intersection(true,true)
-    */
+    intersection(359,29374895)
+*/
 
     output("--------------- Solve ---------------")
     output("Solve for x in x+5+3==x*5-3")

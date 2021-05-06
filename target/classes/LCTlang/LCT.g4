@@ -80,7 +80,7 @@ solveFunction
 
 expr
     : Minus expr                                             # UnaryExpr
-    | expr Power expr                                     # PowerExpr
+    | expr Power expr                                        # PowerExpr
     | expr Increment                                         # PostIncrementExpr
     | expr Decrement                                         # PostDecrementExpr
     | Increment expr                                         # PreIncrementExpr
