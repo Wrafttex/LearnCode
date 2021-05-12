@@ -48,6 +48,7 @@ arguments
 //TODO Implement reserved functions
 functionName
     : 'intersection'
+    | 'log10'
     ;
 
 returnStatement
@@ -87,8 +88,9 @@ expr
     | Decrement expr                                         # PreDecrementExpr
     | Not expr                                               # NotExpr
     | expr op=(Multiply|Divide|Modulo) expr                  # MultiplicativeExpr
-    | expr Plus expr                                         # AdditiveExpr
-    | expr Minus expr                                        # SubtractiveExpr
+    | expr Plus expr                                         # AdditionExpr
+    | expr Minus expr                                        # SubtractionExpr
+    | Square_root LeftParen expr RightParen                  # SqrtExpr
     | expr op=(LessEqual|MoreEqual|LessThan|MoreThan) expr   # RelationalExpr
     | expr op=(Equal|NotEqual) expr                          # EqualExpr
     | expr AND expr                                          # AndExpr
@@ -162,9 +164,10 @@ Decrement: '--';
 
 True: 'true';
 False: 'false';
-//String: '"' (~["\r\n]|'"' )* '"';
+//String: '"' (~["\r\n]|'"' )* (',"'|'"');
 String: '"' (~('\n' | '"'))* '"';
 //String: '"' (~["])+ '"';
+//String: '"' (~('\n' | '"'))* ('",'|'"');
 Int: [0-9]+;
 Float: ([0-9]*[.])?[0-9]+;
 Identifier: [a-zA-Z_] [a-zA-Z0-9_]*;

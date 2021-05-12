@@ -25,7 +25,7 @@ reassignment
     ;
 
 output
-    : Print LeftParen expr RightParen
+    : Output LeftParen expr RightParen
     ;
 
 functionDeclaration
@@ -48,6 +48,7 @@ arguments
 //TODO Implement reserved functions
 functionName
     : 'intersection'
+    | 'log10'
     ;
 
 returnStatement
@@ -63,7 +64,7 @@ forStatement
     ;
 
 forCondition
-    : loopCount=Int 'times'
+    : loopCount=Int Times
     ;
 
 ifStatement
@@ -87,14 +88,15 @@ expr
     | Decrement expr                                         # PreDecrementExpr
     | Not expr                                               # NotExpr
     | expr op=(Multiply|Divide|Modulo) expr                  # MultiplicativeExpr
-    | expr Plus expr                                         # AdditiveExpr
-    | expr Minus expr                                        # SubtractiveExpr
+    | expr Plus expr                                         # AdditionExpr
+    | expr Minus expr                                        # SubtractionExpr
+    | Square_root LeftParen expr RightParen                  # SqrtExpr
     | expr op=(LessEqual|MoreEqual|LessThan|MoreThan) expr   # RelationalExpr
     | expr op=(Equal|NotEqual) expr                          # EqualExpr
     | expr AND expr                                          # AndExpr
     | expr OR expr                                           # OrExpr
     | variable                                               # VariableExpr
-    | functionCall                                           # FunctionReturn
+    | functionCall                                              # FunctionReturn
     ;
 
 variable
@@ -124,10 +126,11 @@ AND: 'AND';                 // Instead of &&
 
 Return: 'return';
 Var: 'var';
-Print: 'output';
+Output: 'output';
 End: 'end';
 Then: 'then';
 Solve: 'solve';
+Times: 'times';
 
 // Encapsulation Tokens
 LeftParen: '(';
@@ -161,9 +164,10 @@ Decrement: '--';
 
 True: 'true';
 False: 'false';
-//String: '"' (~["\r\n]|'"' )* '"';
+//String: '"' (~["\r\n]|'"' )* (',"'|'"');
 String: '"' (~('\n' | '"'))* '"';
 //String: '"' (~["])+ '"';
+//String: '"' (~('\n' | '"'))* ('",'|'"');
 Int: [0-9]+;
 Float: ([0-9]*[.])?[0-9]+;
 Identifier: [a-zA-Z_] [a-zA-Z0-9_]*;

@@ -352,25 +352,25 @@ public class LCTBaseListener implements LCTListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAdditiveExpr(LCTParser.AdditiveExprContext ctx) { }
+	@Override public void enterAdditionExpr(LCTParser.AdditionExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAdditiveExpr(LCTParser.AdditiveExprContext ctx) { }
+	@Override public void exitAdditionExpr(LCTParser.AdditionExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSubtractiveExpr(LCTParser.SubtractiveExprContext ctx) { }
+	@Override public void enterSubtractionExpr(LCTParser.SubtractionExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSubtractiveExpr(LCTParser.SubtractiveExprContext ctx) { }
+	@Override public void exitSubtractionExpr(LCTParser.SubtractionExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -383,6 +383,18 @@ public class LCTBaseListener implements LCTListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPostDecrementExpr(LCTParser.PostDecrementExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSqrtExpr(LCTParser.SqrtExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSqrtExpr(LCTParser.SqrtExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

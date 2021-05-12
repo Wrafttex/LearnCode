@@ -310,29 +310,29 @@ public interface LCTListener extends ParseTreeListener {
 	 */
 	void exitMultiplicativeExpr(LCTParser.MultiplicativeExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code AdditiveExpr}
+	 * Enter a parse tree produced by the {@code AdditionExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterAdditiveExpr(LCTParser.AdditiveExprContext ctx);
+	void enterAdditionExpr(LCTParser.AdditionExprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code AdditiveExpr}
+	 * Exit a parse tree produced by the {@code AdditionExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitAdditiveExpr(LCTParser.AdditiveExprContext ctx);
+	void exitAdditionExpr(LCTParser.AdditionExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code SubtractiveExpr}
+	 * Enter a parse tree produced by the {@code SubtractionExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterSubtractiveExpr(LCTParser.SubtractiveExprContext ctx);
+	void enterSubtractionExpr(LCTParser.SubtractionExprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code SubtractiveExpr}
+	 * Exit a parse tree produced by the {@code SubtractionExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitSubtractiveExpr(LCTParser.SubtractiveExprContext ctx);
+	void exitSubtractionExpr(LCTParser.SubtractionExprContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code PostDecrementExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
@@ -345,6 +345,18 @@ public interface LCTListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPostDecrementExpr(LCTParser.PostDecrementExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code SqrtExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterSqrtExpr(LCTParser.SqrtExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code SqrtExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitSqrtExpr(LCTParser.SqrtExprContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code VariableExpr}
 	 * labeled alternative in {@link LCTParser#expr}.

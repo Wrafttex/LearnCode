@@ -24,6 +24,7 @@ public class LCTIntersection {
         else
             d = -Double.parseDouble(second.split("-")[1]);
 
+
         if (a == c)
             return "The lines are parallel and therefore do not intersect";
 

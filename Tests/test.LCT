@@ -94,6 +94,31 @@ function calcTestFunc()
     //output("true^2 =      Result Should be: Only numbers can be used with ^")
     //output(true^2)
 
+    output("--------------- Modulo ---------------")
+    output("26 % 5 = " + (26 % 5) + " Result Should be: 1")
+    output("66 % 7 = " + (66 % 7) + " Result Should be: 3")
+    output("7563 % 213 = " + (7563 % 213) + " Result Should be: 108")
+    output("21.9 % 453 = " + (21 % 453) + " Result Should be: 21.9")
+
+    //output("Hello % World! = " + " Result Should be: Only boolean expressions can be used with % expression")
+    //output("Hello" % "World!")
+
+    output("--------------- Sqrt ---------------")
+    output("sqrt(67) = " + sqrt(67) + " Result Should be: 8.18535277187")
+    output("sqrt(9) = " + sqrt(9) + " Result Should be: 3")
+    output("sqrt(3568) = " + sqrt(3568) + " Result Should be: 59.7327380923")
+    output("sqrt(456.7) = " + sqrt(456.7) + " Result Should be: 21.5800834104")
+
+    //output("sqrt(Hello) = " + " Result Should be: Only boolean expressions can be used with the sqrt expression")
+    //output(sqrt("Hello"))
+
+    output("--------------- Not ---------------")
+    output("!true = " + (!true) + " Result Should be: false")
+    output("!false = " + (!false) + " Result Should be: true")
+
+    //output("!Hello = " + " Result Should be: Only boolean expressions can be used with ! expression")
+    //output(!"Hello")
+
     output("--------------- relational ---------------")
     output("12 < 124 = " + (12 < 124) + " Result Should be: true")
     output("12 > 124 = " + (12 > 124) + " Result Should be: false")
@@ -145,20 +170,20 @@ function calcTestFunc()
 
     output("--------------- Intersection ---------------")
     output("Intersection between y=2*x+9 and y=3*x+7")
-    intersection("y=2*x+9","y=3*x+7")
+    output(intersection("y=2*x+9","y=3*x+7"))
     output("Result Should be: (2, 13)")
     output("Intersection between y=3*x+2 and y=2*x-1")
-    intersection("y=3*x+2","y=2*x-1")
+    output(intersection("y=3*x+2","y=2*x-1"))
     output("Result Should be: (-3, -7)")
     output("Intersection between y=3*x+9 and y=3*x+7")
-    intersection("y=3*x+9","y=3*x+7")
+    output(intersection("y=3*x+9","y=3*x+7"))
     output("Result Should be: The lines are parallel and therefore don't intersect")
 
-/*
+    /*
     output("Intersection between 359 and 29374895")
     output("Result Should be: Intersection only accepts equations in string format")
     intersection(359,29374895)
-*/
+    */
 
     output("--------------- Solve ---------------")
     output("Solve for x in x+5+3==x*5-3")
@@ -174,4 +199,64 @@ function calcTestFunc()
     */
 end
 
+function integrationTest()
+    var test1 = 5
+    output("----- Test Case 1 -----")
+    output(test1)
+
+    var test2 = "Hello"
+    var test3 = " World!"
+    output(test2 + test3)
+
+    var test4 = true
+    output("----- Test Case 3 -----")
+    output("var test4 = true")
+    output("if test4 then")
+    output("    output(It works)")
+    output("end")
+    if (test4) then
+        output("It works")
+    end
+
+    var test5 = 2 / 4
+    output("----- Test Case 4 -----")
+    output("var test5 = 2 / 4")
+    output("output(test5)")
+    output(test5)
+
+    var test6 = 5 + 3 * 9
+    output("----- Test Case 5 -----")
+    output("var test6 = 5 + 3 * 9")
+    output("output(test6)")
+    output(test6)
+
+    var test7 = testCase6()
+    output("----- Test Case 6 -----")
+    output("function testCase6()")
+    output("    return(5 + 3 * 9)")
+    output("end")
+    output("var test7 = testCase6()")
+    output("output(test7)")
+    output(test7)
+
+    output("----- Test Case 7 -----")
+    output("var i = 0")
+    output("    output(i++)")
+    output("end")
+    var i = 0
+    loop 10 times
+        output(i++)
+    end
+
+    output("----- Test Case 8 -----")
+
+
+end
+
+function testCase6()
+    return(5 + 3 * 9)
+end
+
+//integrationTest()
 calcTestFunc()
+

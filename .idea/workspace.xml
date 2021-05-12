@@ -6,9 +6,55 @@
   <component name="ChangeListManager">
     <list default="true" id="d49989a8-b4cf-4236-b047-c18d29533b5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/CustomJava/LCTIntersection.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/CustomJava/LCTIntersection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.g4" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.interp" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCT.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTBaseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/LCTVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTLang/src/LCTlang/statements/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/LCTLang/src/LCTlang/statements/StatementVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/test.LCT" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test.LCT" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCT.g4" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCT.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCT.interp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCT.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCT.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCT.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTBaseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTBaseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTBaseVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTBaseVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTLexer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$AdditiveExprContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$AndExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$AndExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$AssignStatementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$AssignStatementContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ConditionBlockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ConditionBlockContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$EqualExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$EqualExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ForConditionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ForConditionContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ForStatementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ForStatementContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$FunctionDeclarationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$FunctionDeclarationContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$FunctionReturnContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$FunctionReturnContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$IfStatementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$IfStatementContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$OrExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$OrExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$OutputContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$OutputContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$PostIncrementExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$PostIncrementExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$PowerExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$PowerExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$PreDecrementExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$PreDecrementExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$PreIncrementExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$PreIncrementExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$RelationalExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$RelationalExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ReturnStatementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$ReturnStatementContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$SolveFunctionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$SolveFunctionContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$StatementBlockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$StatementBlockContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$SubtractiveExprContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$UnaryExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser$UnaryExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/LCTVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/LCTVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LCTlang/statements/StatementVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LCTlang/statements/StatementVisitor.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

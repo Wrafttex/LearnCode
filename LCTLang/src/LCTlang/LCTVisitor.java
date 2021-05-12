@@ -190,19 +190,19 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMultiplicativeExpr(LCTParser.MultiplicativeExprContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code AdditiveExpr}
+	 * Visit a parse tree produced by the {@code AdditionExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAdditiveExpr(LCTParser.AdditiveExprContext ctx);
+	T visitAdditionExpr(LCTParser.AdditionExprContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code SubtractiveExpr}
+	 * Visit a parse tree produced by the {@code SubtractionExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSubtractiveExpr(LCTParser.SubtractiveExprContext ctx);
+	T visitSubtractionExpr(LCTParser.SubtractionExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code PostDecrementExpr}
 	 * labeled alternative in {@link LCTParser#expr}.
@@ -210,6 +210,13 @@ public interface LCTVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPostDecrementExpr(LCTParser.PostDecrementExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code SqrtExpr}
+	 * labeled alternative in {@link LCTParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSqrtExpr(LCTParser.SqrtExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code VariableExpr}
 	 * labeled alternative in {@link LCTParser#expr}.

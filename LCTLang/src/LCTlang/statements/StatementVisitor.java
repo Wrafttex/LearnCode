@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.lang.Math;
 
 public class StatementVisitor extends LCTBaseVisitor<Value>
 {
@@ -109,8 +110,17 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             if((line1.isString() && line2.isString()) == false)
                 throw new RuntimeException("Intersection only accepts equations in string format");
             LCTIntersection intersect = new LCTIntersection(line1, line2);
-            System.out.println(intersect.IntersectionPoint());
-            return Value.VOID;
+            //System.out.println(intersect.IntersectionPoint());
+            return new Value(intersect.IntersectionPoint());
+        }
+
+        if (id.contains("log10")) {
+            Value input = this.visit(ctx.arguments().expr(0));
+            if(input.isDouble() == false)
+                throw new RuntimeException("log10 only accepts numbers");
+
+            LCTLog log = new LCTLog();
+            return new Value(log.log(input.asDouble()));
         }
 
         // Gets the statements form function declaration
@@ -151,7 +161,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         }
 
         //System.out.println(ctx.expr().getText());
-        throw new LCTFunctionReturnException("Return statement found", this.visit(ctx.expr()));
+        throw new LCTFunctionReturnException("Return Statement Found!", this.visit(ctx.expr()));
     }
 
     @Override public Value visitSolveFunction(LCTParser.SolveFunctionContext ctx) {
@@ -208,6 +218,26 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
     /* Start of all Expr
     *  Start of all Expr
     *  Start of all Expr*/
+
+    @Override public Value visitNotExpr(LCTParser.NotExprContext ctx) {
+        Value value = this.visit(ctx.expr());
+        if((value.isBoolean()  == false))
+            throw new RuntimeException("Only boolean expressions can be used with ! expression");
+        return new Value(!value.asBoolean());
+    }
+
+    @Override public Value visitSqrtExpr(LCTParser.SqrtExprContext ctx) {
+        Value value = this.visit(ctx.expr());
+
+        if ((ctx.getText().contains("<missing '('>")) || (ctx.getText().contains("<missing ')'>")))
+            throw new RuntimeException("Missing ( ) around output expression");
+
+        if((value.isDouble()  == false))
+            throw new RuntimeException("Only numbers can be used with the sqrt expression");
+
+        return new Value(Math.sqrt(value.asDouble()));
+    }
+
 
     @Override public Value visitUnaryExpr(LCTParser.UnaryExprContext ctx) {
         Value value = this.visit(ctx.expr());
@@ -302,6 +332,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
             throw new RuntimeException("Variable does not exits");
     }
 
+
     @Override public Value visitPowerExpr(LCTParser.PowerExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
@@ -312,7 +343,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
         return new Value(Math.pow(left.asDouble(), right.asDouble()));
     }
 
-    @Override public Value visitAdditiveExpr(LCTParser.AdditiveExprContext ctx) {
+    @Override public Value visitAdditionExpr(LCTParser.AdditionExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
@@ -324,7 +355,7 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
                         new Value(left.asString() + right.asString());
     }
 
-    @Override public Value visitSubtractiveExpr(LCTParser.SubtractiveExprContext ctx) {
+    @Override public Value visitSubtractionExpr(LCTParser.SubtractionExprContext ctx) {
         Value left = this.visit(ctx.expr(0));
         Value right = this.visit(ctx.expr(1));
 
@@ -418,9 +449,8 @@ public class StatementVisitor extends LCTBaseVisitor<Value>
 
     //OUTPUT
     @Override public Value visitOutput(LCTParser.OutputContext ctx) {
-        if ((ctx.getText().contains("<missing '('>")) || (ctx.getText().contains("<missing ')'>"))) {
+        if ((ctx.getText().contains("<missing '('>")) || (ctx.getText().contains("<missing ')'>")))
             throw new RuntimeException("Missing ( ) around output expression");
-        }
 
         Value value = this.visit(ctx.expr());
         System.out.println(value);
