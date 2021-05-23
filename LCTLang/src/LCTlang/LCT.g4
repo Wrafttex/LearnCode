@@ -45,7 +45,6 @@ arguments
     : expr (Comma expr)*
     ;
 
-//TODO Implement reserved functions
 functionName
     : 'intersection'
     | 'log10'
@@ -100,22 +99,18 @@ expr
     ;
 
 variable
-    : LeftParen expr RightParen          # ParentExpr
-    | (Int | Float)                      # NumberVariable
-    | Identifier                         # IdentifierVariable
-    | String                             # StringVariable
-    | (True | False)                     # BooleanVariable
+    : LeftParen expr RightParen                              # ParentExpr
+    | (Int | Float)                                          # NumberVariable
+    | Identifier                                             # IdentifierVariable
+    | String                                                 # StringVariable
+    | (True | False)                                         # BooleanVariable
     ;
 
 // Tokens
 fragment Newline: ('\r' '\n'? | '\n');
 
-Multi_comment: '#-' .*? '-#' -> skip;           //Doesn't work without skip
-Single_comment: '#' ~[\r|\n]* -> skip;          //
-
 //Reserved keywords
 Function: 'function';
-Break: 'break';
 For: 'for';
 Loop: 'loop';
 If: 'if';
@@ -164,10 +159,7 @@ Decrement: '--';
 
 True: 'true';
 False: 'false';
-//String: '"' (~["\r\n]|'"' )* (',"'|'"');
 String: '"' (~('\n' | '"'))* '"';
-//String: '"' (~["])+ '"';
-//String: '"' (~('\n' | '"'))* ('",'|'"');
 Int: [0-9]+;
 Float: ([0-9]*[.])?[0-9]+;
 Identifier: [a-zA-Z_] [a-zA-Z0-9_]*;
@@ -176,5 +168,3 @@ BLOK_COMMENT: '/*' .*? '*/' -> skip;
 LINE_COMMENT: '//' ~[\r\n]* -> skip;
 Whitespace: [ \n\t\r]+ -> skip;
 
-//TODO Maybe split the files, into lexer grammar and parser grammar.
-//TODO Solve the issue of using the same identifier names.

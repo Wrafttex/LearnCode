@@ -257,6 +257,7 @@ function testCase6()
     return(5 + 3 * 9)
 end
 
-//integrationTest()
+integrationTest()
 calcTestFunc()
+
 
