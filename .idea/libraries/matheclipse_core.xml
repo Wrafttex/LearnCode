@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="matheclipse-core">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/LCTLang/libs/matheclipse-core.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/LCTLang/libs/matheclipse-core.jar!/" />
+    </SOURCES>
+    <excluded>
+      <root url="jar://$PROJECT_DIR$/LCTLang/libs/matheclipse-core.jar!/org/antlr" />
+    </excluded>
+  </library>
+</component>
