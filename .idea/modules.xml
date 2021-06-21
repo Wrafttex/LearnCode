@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LearnCode.iml" filepath="$PROJECT_DIR$/LearnCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../symja_android_library-master/symja_android_library/matheclipse-core/matheclipse-core.iml" filepath="$PROJECT_DIR$/../../symja_android_library-master/symja_android_library/matheclipse-core/matheclipse-core.iml" />
+    </modules>
+  </component>
+</project>
